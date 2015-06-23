@@ -3,7 +3,7 @@
 session_start();
 require_once( 'esta.php');
 $id_proyecto=$_SESSION['id_proyecto'];
-$id_user=$SESSION['id_usuario_jotech'];
+$id_user=$_SESSION['id_usuario_jotech'];
 
 extract($_POST);
 
