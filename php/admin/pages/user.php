@@ -1,13 +1,17 @@
 <?php
 
 session_start();
-
+extract($_GET);
 $id_usuario=$_SESSION['id_usuario_jotech'];
 
+if(isset($_GET['id_usuario'])){
+
+$id_usuario=$_GET['id_usuario'];
+}
 
 require_once('esta.php');
 
-extract($_GET);
+
 
 
 

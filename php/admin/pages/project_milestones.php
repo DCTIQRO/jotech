@@ -24,6 +24,13 @@ $renglones_proyectos_tareas = mysqli_query($esta, $sql);
 
 //echo $_SERVER[''];
 
+$sql = "select * from usuarios where id not in (select id_usuario_fk from proyectos_usuarios where id_proyecto_fk=$id)";
+$renglones_usuarios = mysqli_query($esta, $sql);
+
+$sql = "select * from usuarios where id in (select id_usuario_fk from proyectos_usuarios where id_proyecto_fk=$id)";
+$renglones_proyecto_usuarios = mysqli_query($esta, $sql);
+
+
 ?>
 <div class="innerLR">
     <h1 class="pull-left">
@@ -528,27 +535,20 @@ $renglones_proyectos_etapas_tareas = mysqli_query($esta, $sql);
             </div>
             <div class="widget widget-info widget-small">
                 <div class="widget-head">
-                    <div class="heading">Assigned Team Members</div>
+                    <div class="heading">Personas Asignadas</div> <a href="#modal_agregar_persona" data-toggle="modal" class="btn btn-success btn-xs pull-right">Agregar <i class="icon-add-symbol"></i></a>
                 </div>
                 <div class="widget-body padding-none">
+                    
+                    <?php while($renglon_proyecto_usuario = mysqli_fetch_assoc($renglones_proyecto_usuarios)){?>
                     <div class="media innerAll margin-none border-bottom">
                         <div class="pull-left">
-                            <img src="../assets/images/people/50/2.jpg" width="40" alt="people" class="img-circle media-object"/>
+                            <img src="./imagenes/<?php echo $renglon_proyecto_usuario['imagen'];?>" width="40" height="40" alt="people" class="img-circle media-object"/>
                         </div>
-                        <div class="media-body innerT half"><a href="#">Adrian Demian</a></div>
+                        <div class="media-body innerT half"><a href="index.php?page=user&id_usuario=<?php echo $renglon_proyecto_usuario['id'];?>"><?php echo $renglon_proyecto_usuario['nombre'];?></a></div>
                     </div>
-                    <div class="media innerAll margin-none border-bottom">
-                        <div class="pull-left">
-                            <img src="../assets/images/people/50/12.jpg" width="40" alt="people" class="img-circle media-object"/>
-                        </div>
-                        <div class="media-body innerT half"><a href="#">Jamie Doe</a></div>
-                    </div>
-                    <div class="media innerAll margin-none">
-                        <div class="pull-left">
-                            <img src="../assets/images/people/50/10.jpg" width="40" alt="people" class="img-circle media-object"/>
-                        </div>
-                        <div class="media-body innerT half"><a href="#">Bogdan Laza</a></div>
-                    </div>
+                    <?php }?>
+                    
+                    
                 </div>
             </div>
             <div class="widget">
@@ -619,6 +619,65 @@ $renglones_proyectos_etapas_tareas = mysqli_query($esta, $sql);
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Agregar Etapa</button>
+        </div>
+    </div>
+</form>
+
+
+
+
+					</div>
+				</div>
+			</div>
+			<!-- // Modal body END -->
+	
+		</div>
+	</div>
+	
+</div>
+<!-- // Modal END -->
+
+
+
+
+<!-- Form Agregar Persona  -->
+
+	
+<!-- Modal -->
+<div class="modal fade" id="modal_agregar_persona">
+	
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal heading -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 class="modal-title">Login</h3>
+			</div>
+			<!-- // Modal heading END -->
+			
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div class="innerAll">
+					<div class="innerLR">
+						<form class="form-horizontal" role="form" action="/php/admin/pages/agregar_proyecto_persona.php" method="post">
+    
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
+        <div class="col-sm-10">
+            <select id="usuario" name="usuario">
+                <?php while($renglon_usuario = mysqli_fetch_assoc($renglones_usuarios)){?>
+            <option value="<?php echo $renglon_usuario['id']; ?>"><?php echo $renglon_usuario['correo']; ?></option>
+                <?php }?>
+            </select>
+            
+        </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
     </div>
 </form>

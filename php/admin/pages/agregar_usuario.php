@@ -12,11 +12,6 @@ $resultado_query = mysqli_query($esta, $sql);
 //echo $sql;
     
 //$renglon_pieza = mysqli_fetch_assoc($renglones_piezas);
-    
-    header("Location: http://jotech.dctimx.com/php/admin/index.php?page=user");
-die();
-
-
 
 $target_dir = "../imagenes/";
 $target_file = $target_dir . basename($_FILES["imagen"]["name"]);
@@ -25,10 +20,17 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
 
     if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file)) {
-        //echo "The file ". basename( $_FILES["imagen"]["name"]). " has been uploaded.";
+       // echo "The file ". basename( $_FILES["imagen"]["name"]). " has been uploaded.";
     } else {
-        //echo "Sorry, there was an error uploading your file.";
+    //    echo "Sorry, there was an error uploading your file.".$_FILES["imagen"]["error"];;
     }
+    
+    header("Location: http://jotech.dctimx.com/php/admin/index.php?page=user");
+die();
+
+
+
+
 
 
 ?>
