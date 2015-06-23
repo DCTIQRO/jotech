@@ -16,8 +16,8 @@ $renglones_proyectos = mysqli_query($esta, $sql);
 ?>
 <div class="innerLR">
     <h1 class="pull-left">
-        Projects &nbsp; 
-        <a href="index.php?page=project_milestones" class="btn btn-success">Add Project <i class="icon-add-symbol"></i> </a>
+        Projectos &nbsp; 
+        <a href="index.php?page=project_milestones" class="btn btn-success">Nuevo Proyecto <i class="icon-add-symbol"></i> </a>
     </h1>
     <div class="pull-right innerT">
         <div class="btn-group">
@@ -77,13 +77,13 @@ $renglones_proyectos = mysqli_query($esta, $sql);
                                 <div class="row">
                                     <label class="col-sm-2 control-label text-left">Fecha:</label>
                                     <div class="col-sm-10">
-                                        <p class="lead margin-none"><?= $renglon_proyecto['fecha_inicio']." - ".$renglon_proyecto['fecha_entrega']?><span class="text-small text-muted-dark strong">(inicio-entrega)</span> </p>
+                                        <p class="lead margin-none"><?= $renglon_proyecto['fecha_inicio']." - ".$renglon_proyecto['fecha_entrega']." " ?><span class="text-small text-muted-dark strong"> (inicio-entrega)</span> </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="widget widget-none bg-gray innerAll half margin-slim">
                                 <div class="row">
-                                    <label class="col-sm-2 control-label text-left innerT">Assigned:</label>
+                                    <label class="col-sm-2 control-label text-left innerT">Asignados:</label>
                                     <div class="col-md-10 col-sm-6 col-xs-10">
 									<?php 
 										$query2 = "select * from proyectos_usuarios pu JOIN usuarios u on pu.id_usuario_fk=u.id where pu.id_proyecto_fk = ".$renglon_proyecto['id'];

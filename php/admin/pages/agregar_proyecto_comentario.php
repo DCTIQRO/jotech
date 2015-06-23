@@ -3,12 +3,13 @@
 session_start();
 require_once( 'esta.php');
 $id_proyecto=$_SESSION['id_proyecto'];
+$id_user=$SESSION['id_usuario_jotech'];
 
 extract($_POST);
 
 
 
-$sql = "insert into proyectos_comentarios (comentario,id_proyecto_fk) values ('$comentario','$proyecto')";
+$sql = "insert into proyectos_comentarios (comentario,id_proyecto_fk,id_usuario_fk,tipo) values ('$comentario','$proyecto','$id_user','1')";
 
 //echo $sql;
 
