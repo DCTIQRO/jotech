@@ -1,3 +1,19 @@
+<?php
+
+require_once( getcwd().'/pages/esta.php');
+
+extract($_GET);
+
+
+
+$sql = "select * from proyectos order by fecha_insercion desc";
+$renglones_proyectos = mysqli_query($esta, $sql);
+
+
+
+//echo $_SERVER[''];
+
+?>
 <div class="innerLR">
     <h1 class="pull-left">
         Projects &nbsp; 
@@ -19,7 +35,7 @@
                             <div class="pull-left innerR half"> <i class="icon-tv fa-4x icon-faded"></i> </div>
                             <div class="media-body ">
                                 <h4>
-                                    <a href="index.php?page=project_milestones" class="media-heading">PHP Version of Smart</a>
+                                    <a href="index.php?page=project_milestones&id=<?php echo $renglon_proyecto['id'];?>" class="media-heading"><?php echo $renglon_proyecto['nombre'];?></a>
                                 </h4>
                                 <p class="margin-none text-muted">Short description of the project</p>
                             </div>
