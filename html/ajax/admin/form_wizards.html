@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 paceSimple sidebar sidebar-fusion"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 paceSimple sidebar sidebar-fusion"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9 paceSimple sidebar sidebar-fusion"> <![endif]-->
+<!--[if gt IE 8]> <html class="ie paceSimple sidebar sidebar-fusion"> <![endif]-->
+<!--[if !IE]><!--><html class="paceSimple sidebar sidebar-fusion"><!-- <![endif]-->
+<head>
+    <title>SMART (v1.0.0-rc1)</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!--
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	<link rel="stylesheet/less" href="../assets/less/admin/module.admin.stylesheet-complete.less" />
+	-->
+
+            <!--[if lt IE 9]><link rel="stylesheet" href="../assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+
+                    <link rel="stylesheet" href="../assets/css/admin/module.admin.stylesheet-complete.min.css" />
+        
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../assets/plugins/core_ajaxify_loadscript/script.min.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>
+
+<script>var App = {};</script>
+
+<script data-id="App.Scripts">
+App.Scripts = {
+
+	/* CORE scripts always load first; */
+	core: [
+		'../assets/library/jquery/jquery.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/library/modernizr/modernizr.js?v=v1.0.0-rc1&sv=v0.0.1.2'
+	],
+
+	/* PLUGINS_DEPENDENCY always load after CORE but before PLUGINS; */
+	plugins_dependency: [
+		'../assets/library/bootstrap/js/bootstrap.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/library/jquery/jquery-migrate.min.js?v=v1.0.0-rc1&sv=v0.0.1.2'
+	],
+
+	/* PLUGINS always load after CORE and PLUGINS_DEPENDENCY, but before the BUNDLE / initialization scripts; */
+	plugins: [
+		'../assets/plugins/core_ajaxify_davis/davis.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_ajaxify_lazyjaxdavis/jquery.lazyjaxdavis.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_preload/pace.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_nicescroll/jquery.nicescroll.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_breakpoints/breakpoints.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/forms_editors_wysihtml5/js/wysihtml5-0.3.0_rc2.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/forms_editors_wysihtml5/js/bootstrap-wysihtml5-0.0.2.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/forms_wizards/jquery.bootstrap.wizard.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/forms_elements_bootstrap-select/js/bootstrap-select.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/forms_elements_bootstrap-datepicker/js/bootstrap-datepicker.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/ui_modals/bootbox.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/admin_notifications_gritter/js/jquery.gritter.min.js?v=v1.0.0-rc1', 
+		'../assets/plugins/core_less-js/less.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/charts_flot/excanvas.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v1.0.0-rc1&sv=v0.0.1.2'
+	],
+
+	/* The initialization scripts always load last and are automatically and dynamically loaded when AJAX navigation is enabled; */
+	bundle: [
+		'../assets/components/core_ajaxify/ajaxify.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/core_preload/preload.pace.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/forms_editors_wysihtml5/wysihtml5.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/forms_wizards/form-wizards.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/menus/sidebar.main.init.js?v=v1.0.0-rc1', 
+		'../assets/components/menus/sidebar.collapse.init.js?v=v1.0.0-rc1', 
+		'../assets/components/forms_elements_bootstrap-select/bootstrap-select.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/forms_elements_bootstrap-datepicker/bootstrap-datepicker.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/ui_modals/modals.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/admin_notifications_gritter/gritter.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/core/core.init.js?v=v1.0.0-rc1'
+	]
+
+};
+</script>
+
+<script>
+$script(App.Scripts.core, 'core');
+
+$script.ready(['core'], function(){
+	$script(App.Scripts.plugins_dependency, 'plugins_dependency');
+});
+$script.ready(['core', 'plugins_dependency'], function(){
+	$script(App.Scripts.plugins, 'plugins');
+});
+$script.ready(['core', 'plugins_dependency', 'plugins'], function(){
+	$script(App.Scripts.bundle, 'bundle');
+});
+</script>
+    <script>if (/*@cc_on!@*/false && document.documentMode === 10) { document.documentElement.className+=' ie ie10'; }</script>
+
+</head><body class="scripts-async">
+	
+	<!-- Main Container Fluid -->
+	<div class="container-fluid menu-hidden">
+		
+				<!-- Sidebar Menu -->
+		<div id="menu" class="hidden-print hidden-xs">
+
+			
+<div id="sidebar-fusion-wrapper">
+<!--        <input class="form-control search" type="text" placeholder="Search...">-->
+    <div class="search-wrapper">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+                <button class="btn btn-inverse" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+        </div><!-- /input-group -->
+    </div>
+
+    <div id="logoWrapper">
+        <div class="media">
+            <a href="" class="pull-left"><img src="../assets/images/people/50/2.jpg" alt="" class="img-circle" ></a>
+            <div class="media-body">
+                <a href="" class="name">Adrian D.</a>
+                <p><i class="fa fa-fw fa-circle-o text-success"></i> Online</p>
+            </div>
+            <div class="clearfix"></div>
+            <a href="user.html" class="btn btn-xs btn-inverse "><i class="fa fa-user"></i></a>
+            <a href="user/projects.html" class="btn btn-xs btn-inverse "><i class="fa fa-clock-o"></i></a>
+            <a href="user/messages.html" class="btn btn-xs btn-inverse "><i class="fa fa-envelope"></i></a>
+
+        </div>
+        <select class="selectpicker" data-style="btn-inverse" id="select_project">
+            <option>Select Project</option>
+            <option value="project_milestones.html">Project #1</option>
+            <option value="project_milestones.html">Project #2</option>
+            <option value="project_milestones.html">Project #3</option>
+        </select>
+    </div>
+	<ul class="menu list-unstyled">
+					<li class="">
+
+				                    <a href="index.html" class="index">
+                    
+                    
+                                        <i class="fa fa-home"></i>
+                    
+                                        <span>Overview</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="projects_grid.html">
+                    
+                    
+                                        <i class="fa fa-th-large"></i>
+                    
+                                        <span>Projects Grid</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="projects_list.html">
+                    
+                    
+                                        <i class="fa fa-list"></i>
+                    
+                                        <span>Projects List</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="project_milestones.html">
+                    
+                    
+                                        <i class="fa fa-clock-o"></i>
+                    
+                                        <span>Project Overview</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="project_tasks.html">
+                    
+                    
+                                        <i class="fa fa-ticket"></i>
+                    
+                                        <span>Tasks</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="user.html">
+                    
+                    
+                                        <i class="fa fa-user"></i>
+                    
+                                        <span>User Account</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="calendar.html" class="calendar">
+                    
+                    
+                                        <i class="fa fa-calendar"></i>
+                    
+                                        <span>Calendar</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="hasSubmenu">
+
+				                    <a href="#menu-1182ee0707548cee7dd5ff5b610a718d" data-toggle="collapse">
+                    
+                    
+                                        <i class="fa fa-lock"></i>
+                    
+                                        <span>Access</span>
+                    
+                
+				
+				</a>
+				                                        <ul class="collapse" id="menu-1182ee0707548cee7dd5ff5b610a718d">
+                        			<li class="">
+
+				                    <a href="login.html" class="no-ajaxify">
+                    
+                    
+                                        <i class="fa fa-lock"></i>
+                    
+                                        <span>Login</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="signup.html" class="no-ajaxify">
+                    
+                    
+                                        <i class="fa fa-pencil"></i>
+                    
+                                        <span>Sign up</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+			                    </ul>
+                    				
+			</li>
+						<li class="">
+
+				                    <a href="pricing_tables.html" class="pricing">
+                    
+                    
+                                        <i class="fa fa-money"></i>
+                    
+                                        <span>Pricing</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="support_forum_overview.html" class="forum">
+                    
+                    
+                                        <i class="fa fa-life-ring"></i>
+                    
+                                        <span>Forum</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="support_kb.html">
+                    
+                    
+                                        <i class="fa fa-file-text-o"></i>
+                    
+                                        <span>Knowledge Base</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="hasSubmenu active">
+
+				                    <a href="#menu-3b942b99f77e6ac3337207788d469bc5" data-toggle="collapse">
+                    
+                    
+                                        <i class="fa fa-th-large"></i>
+                    
+                                        <span>Components</span>
+                    
+                
+				
+				</a>
+				                                        <ul class="collapse in" id="menu-3b942b99f77e6ac3337207788d469bc5">
+                        			<li class="">
+
+				                    <a href="ui.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>UI Elements</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="icons.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Icons</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="typography.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Typography</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="tabs.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Tabs</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="hasSubmenu">
+
+				                    <a href="#menu-9988447f0bffd4c288ba5e32c377f3ef" data-toggle="collapse">
+                    
+                                        <span class="badge pull-right badge-primary">3</span>
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Tables</span>
+                    
+                
+				
+				</a>
+				                                        <ul class="collapse" id="menu-9988447f0bffd4c288ba5e32c377f3ef">
+                        			<li class="">
+
+				                    <a href="tables.html">
+                    
+                    
+                    
+                                        <span>Tables</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="tables_responsive.html">
+                    
+                    
+                    
+                                        <span>Responsive Tables</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+			                    </ul>
+                    				
+			</li>
+						<li class="hasSubmenu active">
+
+				                    <a href="#menu-ca72db7e2c2c33f1783107cf3fec50c3" data-toggle="collapse">
+                    
+                                        <span class="badge pull-right badge-primary">4</span>
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Forms</span>
+                    
+                
+				
+				</a>
+				                                        <ul class="collapse in" id="menu-ca72db7e2c2c33f1783107cf3fec50c3">
+                        			<li class="active">
+
+				                    <a href="form_wizards.html">
+                    
+                    
+                    
+                                        <span>Form Wizards</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="form_elements.html">
+                    
+                    
+                    
+                                        <span>Form Elements</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="form_validator.html">
+                    
+                    
+                    
+                                        <span>Form Validator</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="file_managers.html">
+                    
+                    
+                    
+                                        <span>File Managers</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+			                    </ul>
+                    				
+			</li>
+						<li class="">
+
+				                    <a href="sliders.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Sliders</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="charts.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Charts</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="grid.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Grid</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="notifications.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Notifications</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="modals.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Modals</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="thumbnails.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Thumbnails</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="carousels.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Carousels</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="image_crop.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Image Cropping</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="twitter.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Twitter API</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="infinite_scroll.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Infinite Scroll</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+			                    </ul>
+                    				
+			</li>
+				</ul>
+</div>
+
+
+
+
+
+
+			
+		</div>
+		<!-- // Sidebar Menu END -->
+				
+		<!-- Content -->
+		<div id="content">
+
+			<div class="navbar hidden-print main navbar-default" role="navigation">
+	<div class="user-action user-action-btn-navbar pull-right">
+		<button class="btn btn-sm btn-navbar btn-inverse btn-stroke hidden-lg hidden-md"><i class="fa fa-bars fa-2x"></i></button>
+	</div>
+	<a href="index.html" class="logo">
+		<img src="../assets/images/logo/logo.jpg" width="32" alt="SMART" />
+		<span class="hidden-xs hidden-sm inline-block"><span>mosaic</span>pro</span>
+	</a>
+	<ul class="main pull-left hidden-xs ">
+		<li class="dropdown notif notifications hidden-xs">
+			<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <span class="badge badge-danger">5</span></a>
+			<ul class="dropdown-menu chat media-list">
+				<li class="media">
+			        <a class="pull-left" href="#"><img class="media-object thumb" src="../assets/images/people/100/15.jpg" alt="50x50" width="50" /></a>
+					<div class="media-body">
+			        	<span class="label label-default pull-right">5 min</span>
+			            <h5 class="media-heading hidden-xs">Adrian D.</h5>
+			            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			        </div>
+				</li>
+		      	<li class="media">
+		          	<a class="pull-left" href="#"><img class="media-object thumb" src="../assets/images/people/100/16.jpg" alt="50x50" width="50" /></a>
+					<div class="media-body">
+			          	<span class="label label-default pull-right">2 days</span>
+			            <h5 class="media-heading">Jane B.</h5>
+			            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			        </div>
+		        </li>
+			    <li class="media">
+		          	<a class="pull-left" href="#"><img class="media-object thumb" src="../assets/images/people/100/17.jpg" alt="50x50" width="50" /></a>
+			      	<div class="media-body">
+						<span class="label label-default pull-right">3 days</span>
+			            <h5 class="media-heading">Andrew M.</h5>
+			            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			        </div>
+		        </li>
+		        <li><a href="#" class="btn btn-primary"><i class="fa fa-list"></i> <span>View all messages</span></a></li>
+	      	</ul>
+		</li>
+		<li class="notifications">
+			<a href="user/projects.html"><i class="fa fa-clock-o"></i> <span class="badge badge-warning">7</span></a>
+		</li>
+		<li class="notifications">
+			<a href="user.html" ><i class="fa fa-user"></i> <span class="badge badge-info">2</span></a>
+		</li>
+	</ul>
+	<ul class="main pull-right">
+		<li class="hidden-xs hidden-sm"><a href="#modal-task" class="btn btn-info" data-toggle="modal">Create Task  <i class="fa fa-fw icon-compose"></i></a></li>
+		<li class="hidden-xs">Completed Tasks:  <strong class="text-primary">24</strong></li>
+		<li class="dropdown username hidden-xs ">
+			<a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="../assets/images/people/35/22.jpg" class="img-circle" alt="Profile" /> Adrian D. <span class="caret"></span></a>
+
+			<ul class="dropdown-menu pull-right">
+				<li><a href="user.html" class="glyphicons user"><i></i> Account</a></li>
+				<li><a href="user/messages.html" class="glyphicons envelope"><i></i>Messages</a></li>
+				<li><a href="user/projects.html" class="glyphicons settings"><i></i>Projects</a></li>
+				<li><a href="login.html" class="glyphicons lock no-ajaxify"><i></i>Logout</a></li>
+		    </ul>
+		</li>
+	</ul> 
+</div>
+<!-- // END navbar -->
+
+
+
+
+
+<h3>Form Wizards</h3>
+<div class="innerLR">
+	<!-- Form Wizard / Widget Tabs / Vertical -->
+<div class="wizard">
+
+	<div class="widget widget-tabs widget-tabs-double widget-tabs-vertical row row-merge">
+
+		<!-- Widget heading -->
+		<div class="widget-head col-md-3">
+			<ul>
+				<li class="active">
+					<a href="#tab1-4" class="glyphicons user" data-toggle="tab">
+						<i></i>
+						<span class="strong">Step 1</span>
+						<span>Personal details</span>
+					</a>
+				</li>
+				<li>
+					<a href="#tab2-4" class="glyphicons calculator" data-toggle="tab">
+						<i></i>
+						<span class="strong">Step 2</span>
+						<span>Billing details</span>
+					</a>
+				</li>
+				<li>
+					<a href="#tab3-4" class="glyphicons credit_card" data-toggle="tab">
+						<i></i>
+						<span class="strong">Step 3</span>
+						<span>Payment</span>
+					</a>
+				</li>
+				<li>
+					<a href="#tab4-4" class="glyphicons circle_ok" data-toggle="tab">
+						<i></i>
+						<span class="strong">Step 4</span>
+						<span>Confirmation</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- // Widget heading END -->
+		
+		<div class="widget-body col-md-9">
+			<div class="tab-content">
+			
+				<!-- Step 1 -->
+				<div class="tab-pane active" id="tab1-4">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Product title</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label>Title</label>
+							<input type="text" class="inputTitle col-md-6 form-control" value="" placeholder="Enter product title ..." />
+							<div class="separator"></div>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 1 END -->
+				
+				<!-- Step 2 -->
+				<div class="tab-pane" id="tab2-4">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Description</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label>Description</label>
+							<textarea id="textDescription_1" class="wysihtml5 form-control" style="width: 96%;" rows="5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 2 END -->
+				
+				<!-- Step 3 -->
+				<div class="tab-pane" id="tab3-4">
+					<h4>Third tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 3 END -->
+				
+				<!-- Step 4 -->
+				<div class="tab-pane" id="tab4-4">
+					<h4>Fourth tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 4 END -->
+				
+				<!-- Wizard pagination controls -->
+				<ul class="pagination margin-bottom-none pull-left">
+					<li class="primary previous first"><a href="#" class="no-ajaxify">First</a></li>
+					<li class="last primary"><a href="#" class="no-ajaxify">Last</a></li>
+				</ul>
+				<ul class="pagination margin-bottom-none pull-right">
+					<li class="primary previous"><a href="#" class="no-ajaxify">Previous</a></li>
+					<li class="next primary"><a href="#" class="no-ajaxify">Next</a></li>
+					<li class="next finish primary" style="display:none;"><a href="#" class="no-ajaxify">Finish</a></li>
+				</ul>
+				<div class="clearfix"></div>
+				<!-- // Wizard pagination controls END -->
+				
+			</div>
+			
+		</div> 
+	</div>
+</div>
+<!-- // Form Wizard / Widget Tabs / Vertical END -->
+
+
+	<!-- Form Wizard / Widget Tabs / Simple -->
+<div class="wizard">
+	<div class="widget widget-tabs widget-tabs-responsive">
+	
+		<!-- Widget heading -->
+		<div class="widget-head">
+			<ul>
+				<li class="active"><a href="#tab1-1" class="glyphicons home" data-toggle="tab"><i></i>First</a></li>
+				<li><a href="#tab2-1" class="glyphicons umbrella" data-toggle="tab"><i></i>Second</a></li>
+				<li><a href="#tab3-1" class="glyphicons fishes" data-toggle="tab"><i></i>Third</a></li>
+				<li><a href="#tab4-1" class="glyphicons car" data-toggle="tab"><i></i>Fourth</a></li>
+				<li><a href="#tab5-1" class="glyphicons leaf" data-toggle="tab"><i></i>Fifth</a></li>
+				<li><a href="#tab6-1" class="glyphicons cup" data-toggle="tab"><i></i>Sixth</a></li>
+				<li><a href="#tab7-1" class="glyphicons tie" data-toggle="tab"><i></i>Seventh</a></li>
+			</ul>
+		</div>
+		<!-- // Widget heading END -->
+		
+		<div class="widget-body">
+			<div class="tab-content">
+			
+				<!-- Step 1 -->
+				<div class="tab-pane active" id="tab1-1">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Product title</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label>Title</label>
+							<input type="text" class="inputTitle col-md-6 form-control" value="" placeholder="Enter product title ..." />
+							<div class="separator"></div>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 1 END -->
+				
+				<!-- Step 2 -->
+				<div class="tab-pane" id="tab2-1">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Description</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label>Description</label>
+							<textarea id="textDescription_2" class="wysihtml5 form-control" style="width: 96%;" rows="5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 2 END -->
+				
+				<!-- Step 3 -->
+				<div class="tab-pane" id="tab3-1">
+					<h4>Third tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 3 END -->
+				
+				<!-- Step 4 -->
+				<div class="tab-pane" id="tab4-1">
+					<h4>Fourth tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 4 END -->
+				
+				<!-- Step 5 -->
+				<div class="tab-pane" id="tab5-1">
+					<h4>Fifth tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 5 END -->
+				
+				<!-- Step 6 -->
+				<div class="tab-pane" id="tab6-1">
+					<h4>Sixth tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 6 END -->
+				
+				<!-- Step 7 -->
+				<div class="tab-pane" id="tab7-1">
+					<h4>Seventh tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 7 END -->
+				
+			</div>
+			
+			<!-- Wizard pagination controls -->
+			<ul class="pagination margin-bottom-none">
+				<li class="primary previous first"><a href="#" class="no-ajaxify">First</a></li>
+				<li class="primary previous"><a href="#" class="no-ajaxify">Previous</a></li>
+				<li class="last primary"><a href="#" class="no-ajaxify">Last</a></li>
+			  	<li class="next primary"><a href="#" class="no-ajaxify">Next</a></li>
+				<li class="next finish primary" style="display:none;"><a href="#" class="no-ajaxify">Finish</a></li>
+			</ul>
+			<!-- // Wizard pagination controls END -->
+			
+		</div>
+		</div>
+</div>
+<!-- // Form Wizard / Widget Tabs / Simple END -->
+
+
+	<!-- Form Wizard / Widget Tabs / Double Style -->
+<div class="wizard">
+	<div class="widget widget-tabs widget-tabs-double widget-tabs-responsive">
+	
+		<!-- Widget heading -->
+		<div class="widget-head">
+			<ul>
+				<li class="active"><a href="#tab1-2" class="glyphicons user" data-toggle="tab"><i></i><span class="strong">Step 1</span><span>Personal details</span></a></li>
+				<li><a href="#tab2-2" class="glyphicons calculator" data-toggle="tab"><i></i><span class="strong">Step 2</span><span>Billing details</span></a></li>
+				<li><a href="#tab3-2" class="glyphicons credit_card" data-toggle="tab"><i></i><span class="strong">Step 3</span><span>Payment</span></a></li>
+				<li><a href="#tab4-2" class="glyphicons circle_ok" data-toggle="tab"><i></i><span class="strong">Step 4</span><span>Confirmation</span></a></li>
+			</ul>
+		</div>
+		<!-- // Widget heading END -->
+		
+		<div class="widget-body">
+			<div class="tab-content">
+			
+				<!-- Step 1 -->
+				<div class="tab-pane active" id="tab1-2">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Product title</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label>Title</label>
+							<input type="text" class="inputTitle col-md-6 form-control" value="" placeholder="Enter product title ..." />
+							<div class="separator"></div>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 1 END -->
+				
+				<!-- Step 2 -->
+				<div class="tab-pane" id="tab2-2">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Description</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label>Description</label>
+							<textarea id="textDescription_3" class="wysihtml5 form-control" style="width: 96%;" rows="5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 2 END -->
+				
+				<!-- Step 3 -->
+				<div class="tab-pane" id="tab3-2">
+					<h4>Third tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 3 END -->
+				
+				<!-- Step 4 -->
+				<div class="tab-pane" id="tab4-2">
+					<h4>Fourth tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 4 END -->
+				
+			</div>
+			
+			<!-- Wizard pagination controls -->
+			<ul class="pagination margin-bottom-none">
+				<li class="primary previous first"><a href="#" class="no-ajaxify">First</a></li>
+				<li class="primary previous"><a href="#" class="no-ajaxify">Previous</a></li>
+				<li class="last primary"><a href="#" class="no-ajaxify">Last</a></li>
+			  	<li class="next primary"><a href="#" class="no-ajaxify">Next</a></li>
+				<li class="next finish primary" style="display:none;"><a href="#" class="no-ajaxify">Finish</a></li>
+			</ul>
+			<!-- // Wizard pagination controls END -->
+			
+		</div>
+	</div>
+</div>
+<!-- // Form Wizard / Widget Tabs / Double Style END -->
+
+
+	<!-- Form Wizard / Widget Pills -->
+<div class="wizard">
+	<div class="widget widget-tabs widget-wizard-pills widget-tabs-responsive">
+	
+		<!-- Widget heading -->
+		<div class="widget-head">
+			<ul>
+				<li class="status"><span class="r">Step <span class="step-current">2</span> of <span class="steps-total">5</span></span><span class="r text-primary">Completed: <span class="steps-complete">1</span></span></li>
+				<li class="active no-padding"><a href="#tab1-3" data-toggle="tab">1</a></li>
+				<li><a href="#tab2-3" data-toggle="tab">2</a></li>
+				<li><a href="#tab3-3" data-toggle="tab">3</a></li>
+				<li><a href="#tab4-3" data-toggle="tab">4</a></li>
+			</ul>
+		</div>
+		<!-- // Widget heading END -->
+		
+		<div class="widget-body">
+			<div class="tab-content">
+			
+				<!-- Step 1 -->
+				<div class="tab-pane active" id="tab1-3">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Product title</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label>Title</label>
+							<input type="text" class="inputTitle col-md-6 form-control" value="" placeholder="Enter product title ..." />
+							<div class="separator"></div>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 1 END -->
+				
+				<!-- Step 2 -->
+				<div class="tab-pane" id="tab2-3">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Description</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label>Description</label>
+							<textarea id="textDescription_4" class="wysihtml5 form-control" style="width: 96%;" rows="5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 2 END -->
+				
+				<!-- Step 3 -->
+				<div class="tab-pane" id="tab3-3">
+					<h4>Third tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 3 END -->
+				
+				<!-- Step 4 -->
+				<div class="tab-pane" id="tab4-3">
+					<h4>Fourth tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 4 END -->
+				
+			</div>
+			
+			<!-- Wizard pagination controls -->
+			<ul class="pagination margin-bottom-none pull-left">
+				<li class="primary previous first"><a href="#" class="no-ajaxify">First</a></li>
+				<li class="last primary"><a href="#" class="no-ajaxify">Last</a></li>
+			</ul>
+			<ul class="pagination margin-bottom-none pull-right">
+				<li class="primary previous"><a href="#" class="no-ajaxify">Previous</a></li>
+				<li class="next primary"><a href="#" class="no-ajaxify">Next</a></li>
+				<li class="next finish primary" style="display:none;"><a href="#" class="no-ajaxify">Finish</a></li>
+			</ul>
+			<div class="clearfix"></div>
+			<!-- // Wizard pagination controls END -->
+			
+		</div>
+	</div>
+</div>
+<!-- // Form Wizard / Widget Pills END -->
+
+
+	<!-- Form Wizard / Arrow navigation & Progress bar -->
+<div id="rootwizard" class="wizard">
+
+	<!-- Wizard heading -->
+	<div class="wizard-head">
+		<ul>
+			<li><a href="#tab1" data-toggle="tab">First</a></li>
+			<li><a href="#tab2" data-toggle="tab">Second</a></li>
+			<li><a href="#tab3" data-toggle="tab">Third</a></li>
+			<li><a href="#tab4" data-toggle="tab">Fourth</a></li>
+			<li><a href="#tab5" data-toggle="tab">Fifth</a></li>
+			<li><a href="#tab6" data-toggle="tab">Sixth</a></li>
+			<li><a href="#tab7" data-toggle="tab">Seventh</a></li>
+		</ul>
+	</div>
+	<!-- // Wizard heading END -->
+	
+	<div class="widget">
+	
+		<!-- Wizard Progress bar -->
+		<div class="widget-head progress progress-primary" id="bar">
+			<div class="progress-bar">Step <strong class="step-current">1</strong> of <strong class="steps-total">3</strong> - <strong class="steps-percent">100%</strong></div>
+		</div>
+		<!-- // Wizard Progress bar END -->
+		
+		<div class="widget-body">
+			<div class="tab-content">
+			
+				<!-- Step 1 -->
+				<div class="tab-pane active" id="tab1">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Product title</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label for="inputTitle">Title</label>
+							<input type="text" id="inputTitle" class="col-md-6 form-control" value="" placeholder="Enter product title ..." />
+							<div class="separator"></div>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 1 END -->
+				
+				<!-- Step 2 -->
+				<div class="tab-pane" id="tab2">
+					<div class="row">
+						<div class="col-md-3">
+							<strong>Description</strong>
+							<p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+						<div class="col-md-9">
+							<label for="textDescription">Description</label>
+							<textarea id="textDescription" class="wysihtml5 form-control" style="width: 96%;" rows="5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>
+						</div>
+					</div>
+				</div>
+				<!-- // Step 2 END -->
+				
+				<!-- Step 3 -->
+				<div class="tab-pane" id="tab3">
+					<h4>Third tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 3 END -->
+				
+				<!-- Step 4 -->
+				<div class="tab-pane" id="tab4">
+					<h4>Fourth tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 4 END -->
+				
+				<!-- Step 5 -->
+				<div class="tab-pane" id="tab5">
+					<h4>Fifth tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 5 END -->
+				
+				<!-- Step 6 -->
+				<div class="tab-pane" id="tab6">
+					<h4>Sixth tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 6 END -->
+				
+				<!-- Step 7 -->
+				<div class="tab-pane" id="tab7">
+					<h4>Seventh tab</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices libero vel massa egestas facilisis. Mauris convallis augue nec dolor dignissim vestibulum. Praesent imperdiet elit posuere arcu posuere consectetur. Morbi dignissim eleifend nibh, eget tincidunt nibh dignissim hendrerit. Cras iaculis congue lorem, eget gravida augue vehicula sed. Nam lorem sem, consectetur ac tempus quis, consectetur ut lectus. In bibendum luctus pharetra. Morbi lacinia sem sem. Phasellus quis tellus magna.</p>
+				</div>
+				<!-- // Step 7 END -->
+				
+			</div>
+			
+			<!-- Wizard pagination controls -->
+			<ul class="pagination margin-bottom-none">
+				<li class="primary previous first"><a href="#" class="no-ajaxify">First</a></li>
+				<li class="primary previous"><a href="#" class="no-ajaxify">Previous</a></li>
+				<li class="last primary"><a href="#" class="no-ajaxify">Last</a></li>
+			  	<li class="next primary"><a href="#" class="no-ajaxify">Next</a></li>
+				<li class="next finish primary" style="display:none;"><a href="#" class="no-ajaxify">Finish</a></li>
+			</ul>
+			<!-- // Wizard pagination controls END -->
+			
+		</div>
+	</div>
+</div>
+<!-- // Form Wizard / Arrow navigation & Progress bar END -->
+
+
+
+</div>
+<!-- CREATE TASK MODAL -->
+<!-- Modal -->
+<div class="modal fade" id="modal-task">
+
+    <div class="modal-dialog">
+        <div class="modal-content bg-white">
+            <!-- Modal body -->
+            <div class="modal-body padding-none ">
+
+                <form class="form-horizontal " role="form">
+
+                        <div class="innerLR innerT">
+                            <div class="form-group">
+                                <label for="to" class="col-sm-2 control-label">Task:</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="to">
+                                        <div class="input-group-btn">
+                                            <button type="button" data-toggle="collapse" data-target="#cc" class="btn btn-default">Schedule <span class="caret"></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="cc" class="collapse">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Starts:</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group date datepicker2">
+    <input class="form-control" type="text" value="14 February 2013" />
+    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+</div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Ends:</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group date datepicker2">
+    <input class="form-control" type="text" value="14 February 2013" />
+    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Milestone:</label>
+                                <div class="col-sm-6">
+                                    <select class="selectpicker">
+                                        <option>HTML Validation</option>
+                                        <option>User Interface Design</option>
+                                        <option>Update Bootstrap 3.2</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Project:</label>
+                                <div class="col-sm-6">
+                                    <select class="selectpicker">
+                                        <option>Project #1</option>
+                                        <option>Project #2</option>
+                                        <option>Project #3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                    <div class="innerAll bg-white">
+                        <textarea class="notebook border-none form-control padding-none" rows="4" placeholder="Task description..."></textarea>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- // Modal body END -->
+
+            <div class="innerLR innerB text-right">
+                <a href="" class="btn btn-default"><i class="fa fa-times"></i> Cancel</a>
+                <a href="" class="btn btn-primary"><i class="fa  fa-check"></i> Submit</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- // Modal END -->
+
+
+
+
+<!-- // END MODAL -->
+
+		
+		</div>
+		<!-- // Content END -->
+		
+		<div class="clearfix"></div>
+		<!-- // Sidebar menu & content wrapper END -->
+		
+		<div id="footer" class="hidden-print">
+			
+			<!--  Copyright Line -->
+			<div class="copy">&copy; 2012 - 2014 - <a href="http://www.mosaicpro.biz">MosaicPro</a> - All Rights Reserved. <a href="http://themeforest.net/?ref=mosaicpro" target="_blank">Purchase SMART on ThemeForest</a> - Current version: v1.0.0-rc1 / <a target="_blank" href="../assets/../../CHANGELOG.txt?v=v1.0.0-rc1">changelog</a></div>
+			<!--  End Copyright Line -->
+	
+		</div>
+		
+		<!-- // Footer END -->
+		
+	</div>
+	<!-- // Main Container Fluid END -->
+	
+
+    <!-- Global -->
+    <script data-id="App.Config">
+                var basePath = '',
+            commonPath = '../assets/',
+            rootPath = '../',
+            DEV = false,
+            componentsPath = '../assets/components/';
+
+        var primaryColor = '#c72a25',
+            dangerColor = '#b55151',
+            successColor = '#609450',
+            infoColor = '#4a8bc2',
+            warningColor = '#ab7a4b',
+            inverseColor = '#45484d';
+
+        var themerPrimaryColor = primaryColor;
+
+                App.Config = {
+            ajaxify_menu_selectors: ['#menu'],
+            ajaxify_layout_app: false        };
+            </script>
+
+    
+</body>
+</html>

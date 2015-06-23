@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 paceSimple sidebar sidebar-fusion"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 paceSimple sidebar sidebar-fusion"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9 paceSimple sidebar sidebar-fusion"> <![endif]-->
+<!--[if gt IE 8]> <html class="ie paceSimple sidebar sidebar-fusion"> <![endif]-->
+<!--[if !IE]><!--><html class="paceSimple sidebar sidebar-fusion"><!-- <![endif]-->
+<head>
+    <title>SMART (v1.0.0-rc1)</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!--
+	**********************************************************
+	In development, use the LESS files and the less.js compiler
+	instead of the minified CSS loaded by default.
+	**********************************************************
+	<link rel="stylesheet/less" href="../assets/less/admin/module.admin.stylesheet-complete.less" />
+	-->
+
+            <!--[if lt IE 9]><link rel="stylesheet" href="../assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+
+                    <link rel="stylesheet" href="../assets/css/admin/module.admin.stylesheet-complete.min.css" />
+        
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../assets/plugins/core_ajaxify_loadscript/script.min.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>
+
+<script>var App = {};</script>
+
+<script data-id="App.Scripts">
+App.Scripts = {
+
+	/* CORE scripts always load first; */
+	core: [
+		'../assets/library/jquery/jquery.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/library/modernizr/modernizr.js?v=v1.0.0-rc1&sv=v0.0.1.2'
+	],
+
+	/* PLUGINS_DEPENDENCY always load after CORE but before PLUGINS; */
+	plugins_dependency: [
+		'../assets/library/bootstrap/js/bootstrap.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/library/jquery/jquery-migrate.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/charts_flot/jquery.flot.js?v=v1.0.0-rc1&sv=v0.0.1.2'
+	],
+
+	/* PLUGINS always load after CORE and PLUGINS_DEPENDENCY, but before the BUNDLE / initialization scripts; */
+	plugins: [
+		'../assets/plugins/core_ajaxify_davis/davis.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_ajaxify_lazyjaxdavis/jquery.lazyjaxdavis.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_preload/pace.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_nicescroll/jquery.nicescroll.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_breakpoints/breakpoints.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/charts_flot/jquery.flot.resize.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/charts_flot/plugins/jquery.flot.tooltip.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/charts_flot/flotcharts.common.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/maps_vector/jquery-jvectormap-1.2.2.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/maps_vector/data/gdp-data.js?v=v1.0.0-rc1', 
+		'../assets/plugins/maps_vector/maps/jquery-jvectormap-world-mill-en.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/maps_vector/maps/jquery-jvectormap-us-aea-en.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/maps_vector/maps/jquery-jvectormap-de-merc-en.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/maps_vector/maps/jquery-jvectormap-fr-merc-en.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/maps_vector/maps/jquery-jvectormap-es-merc-en.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/maps_vector/maps/jquery-jvectormap-us-lcc-en.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/maps_vector/maps/mall-map.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/forms_elements_bootstrap-select/js/bootstrap-select.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/forms_elements_bootstrap-datepicker/js/bootstrap-datepicker.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/ui_modals/bootbox.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/admin_notifications_gritter/js/jquery.gritter.min.js?v=v1.0.0-rc1', 
+		'../assets/plugins/core_less-js/less.min.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/charts_flot/excanvas.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v1.0.0-rc1&sv=v0.0.1.2'
+	],
+
+	/* The initialization scripts always load last and are automatically and dynamically loaded when AJAX navigation is enabled; */
+	bundle: [
+		'../assets/components/core_ajaxify/ajaxify.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/core_preload/preload.pace.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/charts_flot/flotchart-mixed-1.init.js?v=v1.0.0-rc1', 
+		'../assets/components/forms_elements_fuelux-checkbox/fuelux-checkbox.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/maps_vector/maps-vector.france-elections.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/maps_vector/maps-vector.mall-map.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/maps_vector/maps-vector.projection-map.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/maps_vector/maps-vector.random-colors.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/maps_vector/maps-vector.region-selection.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/maps_vector/maps-vector.usa-unemployment.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/maps_vector/maps-vector.world-map-gdp.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/maps_vector/maps-vector.world-map-markers.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/menus/sidebar.main.init.js?v=v1.0.0-rc1', 
+		'../assets/components/menus/sidebar.collapse.init.js?v=v1.0.0-rc1', 
+		'../assets/components/forms_elements_bootstrap-select/bootstrap-select.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/forms_elements_bootstrap-datepicker/bootstrap-datepicker.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/ui_modals/modals.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/admin_notifications_gritter/gritter.init.js?v=v1.0.0-rc1&sv=v0.0.1.2', 
+		'../assets/components/core/core.init.js?v=v1.0.0-rc1', 
+		'../assets/components/maps_vector/maps-vector.tabs.js?v=v1.0.0-rc1&sv=v0.0.1.2'
+	]
+
+};
+</script>
+
+<script>
+$script(App.Scripts.core, 'core');
+
+$script.ready(['core'], function(){
+	$script(App.Scripts.plugins_dependency, 'plugins_dependency');
+});
+$script.ready(['core', 'plugins_dependency'], function(){
+	$script(App.Scripts.plugins, 'plugins');
+});
+$script.ready(['core', 'plugins_dependency', 'plugins'], function(){
+	$script(App.Scripts.bundle, 'bundle');
+});
+</script>
+    <script>if (/*@cc_on!@*/false && document.documentMode === 10) { document.documentElement.className+=' ie ie10'; }</script>
+
+</head><body class="scripts-async">
+	
+	<!-- Main Container Fluid -->
+	<div class="container-fluid menu-hidden">
+		
+				<!-- Sidebar Menu -->
+		<div id="menu" class="hidden-print hidden-xs">
+
+			
+<div id="sidebar-fusion-wrapper">
+<!--        <input class="form-control search" type="text" placeholder="Search...">-->
+    <div class="search-wrapper">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+                <button class="btn btn-inverse" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+        </div><!-- /input-group -->
+    </div>
+
+    <div id="logoWrapper">
+        <div class="media">
+            <a href="" class="pull-left"><img src="../assets/images/people/50/2.jpg" alt="" class="img-circle" ></a>
+            <div class="media-body">
+                <a href="" class="name">Adrian D.</a>
+                <p><i class="fa fa-fw fa-circle-o text-success"></i> Online</p>
+            </div>
+            <div class="clearfix"></div>
+            <a href="user.html" class="btn btn-xs btn-inverse "><i class="fa fa-user"></i></a>
+            <a href="user/projects.html" class="btn btn-xs btn-inverse "><i class="fa fa-clock-o"></i></a>
+            <a href="user/messages.html" class="btn btn-xs btn-inverse "><i class="fa fa-envelope"></i></a>
+
+        </div>
+        <select class="selectpicker" data-style="btn-inverse" id="select_project">
+            <option>Select Project</option>
+            <option value="project_milestones.html">Project #1</option>
+            <option value="project_milestones.html">Project #2</option>
+            <option value="project_milestones.html">Project #3</option>
+        </select>
+    </div>
+	<ul class="menu list-unstyled">
+					<li class="active">
+
+				                    <a href="index.html" class="index">
+                    
+                    
+                                        <i class="fa fa-home"></i>
+                    
+                                        <span>Overview</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="projects_grid.html">
+                    
+                    
+                                        <i class="fa fa-th-large"></i>
+                    
+                                        <span>Projects Grid</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="projects_list.html">
+                    
+                    
+                                        <i class="fa fa-list"></i>
+                    
+                                        <span>Projects List</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="project_milestones.html">
+                    
+                    
+                                        <i class="fa fa-clock-o"></i>
+                    
+                                        <span>Project Overview</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="project_tasks.html">
+                    
+                    
+                                        <i class="fa fa-ticket"></i>
+                    
+                                        <span>Tasks</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="user.html">
+                    
+                    
+                                        <i class="fa fa-user"></i>
+                    
+                                        <span>User Account</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="calendar.html" class="calendar">
+                    
+                    
+                                        <i class="fa fa-calendar"></i>
+                    
+                                        <span>Calendar</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="hasSubmenu">
+
+				                    <a href="#menu-4905a8758e2b9b737de284e3c796cd55" data-toggle="collapse">
+                    
+                    
+                                        <i class="fa fa-lock"></i>
+                    
+                                        <span>Access</span>
+                    
+                
+				
+				</a>
+				                                        <ul class="collapse" id="menu-4905a8758e2b9b737de284e3c796cd55">
+                        			<li class="">
+
+				                    <a href="login.html" class="no-ajaxify">
+                    
+                    
+                                        <i class="fa fa-lock"></i>
+                    
+                                        <span>Login</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="signup.html" class="no-ajaxify">
+                    
+                    
+                                        <i class="fa fa-pencil"></i>
+                    
+                                        <span>Sign up</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+			                    </ul>
+                    				
+			</li>
+						<li class="">
+
+				                    <a href="pricing_tables.html" class="pricing">
+                    
+                    
+                                        <i class="fa fa-money"></i>
+                    
+                                        <span>Pricing</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="support_forum_overview.html" class="forum">
+                    
+                    
+                                        <i class="fa fa-life-ring"></i>
+                    
+                                        <span>Forum</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="support_kb.html">
+                    
+                    
+                                        <i class="fa fa-file-text-o"></i>
+                    
+                                        <span>Knowledge Base</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="hasSubmenu">
+
+				                    <a href="#menu-dcb4f366747b36dd34a1e7413d58e4b8" data-toggle="collapse">
+                    
+                    
+                                        <i class="fa fa-th-large"></i>
+                    
+                                        <span>Components</span>
+                    
+                
+				
+				</a>
+				                                        <ul class="collapse" id="menu-dcb4f366747b36dd34a1e7413d58e4b8">
+                        			<li class="">
+
+				                    <a href="ui.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>UI Elements</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="icons.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Icons</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="typography.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Typography</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="tabs.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Tabs</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="hasSubmenu">
+
+				                    <a href="#menu-6eaf9e9a2d473384513747cb02213914" data-toggle="collapse">
+                    
+                                        <span class="badge pull-right badge-primary">3</span>
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Tables</span>
+                    
+                
+				
+				</a>
+				                                        <ul class="collapse" id="menu-6eaf9e9a2d473384513747cb02213914">
+                        			<li class="">
+
+				                    <a href="tables.html">
+                    
+                    
+                    
+                                        <span>Tables</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="tables_responsive.html">
+                    
+                    
+                    
+                                        <span>Responsive Tables</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+			                    </ul>
+                    				
+			</li>
+						<li class="hasSubmenu">
+
+				                    <a href="#menu-fe3a45f95143c09d49f4ee00c73d0961" data-toggle="collapse">
+                    
+                                        <span class="badge pull-right badge-primary">4</span>
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Forms</span>
+                    
+                
+				
+				</a>
+				                                        <ul class="collapse" id="menu-fe3a45f95143c09d49f4ee00c73d0961">
+                        			<li class="">
+
+				                    <a href="form_wizards.html">
+                    
+                    
+                    
+                                        <span>Form Wizards</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="form_elements.html">
+                    
+                    
+                    
+                                        <span>Form Elements</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="form_validator.html">
+                    
+                    
+                    
+                                        <span>Form Validator</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="file_managers.html">
+                    
+                    
+                    
+                                        <span>File Managers</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+			                    </ul>
+                    				
+			</li>
+						<li class="">
+
+				                    <a href="sliders.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Sliders</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="charts.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Charts</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="grid.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Grid</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="notifications.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Notifications</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="modals.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Modals</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="thumbnails.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Thumbnails</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="carousels.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Carousels</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="image_crop.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Image Cropping</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="twitter.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Twitter API</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+						<li class="">
+
+				                    <a href="infinite_scroll.html">
+                    
+                    
+                                        <i class="fa fa-circle-o"></i>
+                    
+                                        <span>Infinite Scroll</span>
+                    
+                
+				
+				</a>
+				
+			</li>
+			                    </ul>
+                    				
+			</li>
+				</ul>
+</div>
+
+
+
+
+
+
+			
+		</div>
+		<!-- // Sidebar Menu END -->
+				
+		<!-- Content -->
+		<div id="content">
+
+			<div class="navbar hidden-print main navbar-default" role="navigation">
+	<div class="user-action user-action-btn-navbar pull-right">
+		<button class="btn btn-sm btn-navbar btn-inverse btn-stroke hidden-lg hidden-md"><i class="fa fa-bars fa-2x"></i></button>
+	</div>
+	<a href="index.html" class="logo">
+		<img src="../assets/images/logo/logo.jpg" width="32" alt="SMART" />
+		<span class="hidden-xs hidden-sm inline-block"><span>mosaic</span>pro</span>
+	</a>
+	<ul class="main pull-left hidden-xs ">
+		<li class="dropdown notif notifications hidden-xs">
+			<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <span class="badge badge-danger">5</span></a>
+			<ul class="dropdown-menu chat media-list">
+				<li class="media">
+			        <a class="pull-left" href="#"><img class="media-object thumb" src="../assets/images/people/100/15.jpg" alt="50x50" width="50" /></a>
+					<div class="media-body">
+			        	<span class="label label-default pull-right">5 min</span>
+			            <h5 class="media-heading hidden-xs">Adrian D.</h5>
+			            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			        </div>
+				</li>
+		      	<li class="media">
+		          	<a class="pull-left" href="#"><img class="media-object thumb" src="../assets/images/people/100/16.jpg" alt="50x50" width="50" /></a>
+					<div class="media-body">
+			          	<span class="label label-default pull-right">2 days</span>
+			            <h5 class="media-heading">Jane B.</h5>
+			            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			        </div>
+		        </li>
+			    <li class="media">
+		          	<a class="pull-left" href="#"><img class="media-object thumb" src="../assets/images/people/100/17.jpg" alt="50x50" width="50" /></a>
+			      	<div class="media-body">
+						<span class="label label-default pull-right">3 days</span>
+			            <h5 class="media-heading">Andrew M.</h5>
+			            <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			        </div>
+		        </li>
+		        <li><a href="#" class="btn btn-primary"><i class="fa fa-list"></i> <span>View all messages</span></a></li>
+	      	</ul>
+		</li>
+		<li class="notifications">
+			<a href="user/projects.html"><i class="fa fa-clock-o"></i> <span class="badge badge-warning">7</span></a>
+		</li>
+		<li class="notifications">
+			<a href="user.html" ><i class="fa fa-user"></i> <span class="badge badge-info">2</span></a>
+		</li>
+	</ul>
+	<ul class="main pull-right">
+		<li class="hidden-xs hidden-sm"><a href="#modal-task" class="btn btn-info" data-toggle="modal">Create Task  <i class="fa fa-fw icon-compose"></i></a></li>
+		<li class="hidden-xs">Completed Tasks:  <strong class="text-primary">24</strong></li>
+		<li class="dropdown username hidden-xs ">
+			<a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="../assets/images/people/35/22.jpg" class="img-circle" alt="Profile" /> Adrian D. <span class="caret"></span></a>
+
+			<ul class="dropdown-menu pull-right">
+				<li><a href="user.html" class="glyphicons user"><i></i> Account</a></li>
+				<li><a href="user/messages.html" class="glyphicons envelope"><i></i>Messages</a></li>
+				<li><a href="user/projects.html" class="glyphicons settings"><i></i>Projects</a></li>
+				<li><a href="login.html" class="glyphicons lock no-ajaxify"><i></i>Logout</a></li>
+		    </ul>
+		</li>
+	</ul> 
+</div>
+<!-- // END navbar -->
+
+
+
+
+
+<div class="top-content-menu">
+    <a href="#" class="visible-xs " data-toggle="collapse" data-target="#top-menu">Submenu <i class="fa fa-caret-down pull-right"></i></a>
+	<div class="collapse in" id="top-menu">
+		<ul class="list-unstyled " >
+			<li class="active"><a href="index.html" >Home</a></li>
+			<li class=""><a href="ui.html" >User Interface</a></li>
+			<li class=""><a href="form_elements.html" >Form Elements</a></li>
+			<li class=""><a href="tables.html" >Tables</a></li>
+			<li class=""><a href="maps_google.html " >Maps</a></li>
+			<li class=""><a href="typography.html">Typography</a></li>
+		</ul>		
+	 </div>
+</div>
+
+<div class="innerLR">
+	<h1 class="">Overview</h1>
+	<div class="innerTB">
+		<div class="row">
+			<div class="col-md-2 col-sm-6">
+				<div class="widget icon-widget widget-primary">
+					<div class="widget-body innerAll half ">
+						<div class="background-icon">
+							<i class="icon-graph-up-1 icon-faded"></i>
+						</div>
+						<div class="text-muted">Completed Tasks </div>
+					</div>
+					<div class="border-top innerTB half text-large text-center">
+						45	
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-6">
+				<div class="widget icon-widget widget-warning">
+					<div class="widget-body innerAll half ">
+						<div class="background-icon">
+							<i class="icon-sliders icon-faded"></i>
+						</div>
+						<div class="text-muted">Pending Tasks</div>
+					</div>		
+					<div class="border-top innerTB half text-large text-center">
+						4
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-6">
+				<div class="widget icon-widget widget-success">
+					<div class="widget-body innerAll half">
+						<div class="background-icon">
+							<i class="icon-tag-3 icon-faded"></i>
+						</div>
+						<div class="text-muted">Due by</div>
+					</div>		
+					<div class="border-top text-center">
+						<div class="text-large">20</div>
+						<small>January</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-6">
+				<div class="widget icon-widget widget-info">
+					<div class="widget-body innerAll half">
+						<div class="background-icon">
+							<i class="icon-pie-graph icon-faded"></i>
+						</div>
+						<div class="text-muted">Progress</div>
+					</div>		
+					<div class="border-top innerTB half text-large text-center">
+						72&#37;
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-6">
+				<div class="widget icon-widget widget-danger">
+					<div class="widget-body innerAll half">
+						<div class="background-icon">
+							<i class="icon-calculator icon-faded"></i>
+						</div>
+						<div class="text-muted">Paid</div>
+					</div>		
+					<div class="border-top innerTB half text-large text-center">
+						&euro;1200
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-6">
+				<div class="widget icon-widget widget-inverse">
+					<div class="widget-body innerAll half">
+						<div class="background-icon">
+							<i class="icon-group icon-faded"></i>
+						</div>
+						<div class="text-muted">People</div>
+					</div>		
+					<div class="border-top innerTB half text-large text-center">
+						2
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9">
+				<div class="widget widget-tabs widget-small widget-inverse">
+				    <div class="widget-head">
+					    <ul>
+					      	<li class="active"><a href="#Widget-tab-1-1" data-toggle="tab">Statistic</a></li>
+					        <li class="pull-right"><a href="#widget-tab-1-3" data-toggle="tab">Project Specs</a></li>
+					    </ul>
+				    </div>
+				    <div class="tab-content">
+					    <div class="tab-pane fade in active" id="Widget-tab-1-1">
+				    		<div class="innerAll padding-bottom-none">
+						    	<!-- Chart with lines and fill with no points -->
+								<div id="chart_mixed_1" class="flotchart-holder" style="height: 196px"></div>
+
+                                
+                                
+					    	</div>
+						</div>
+					    <div class="tab-pane fade" id="Widget-tab-1-2">
+							<div class="innerAll">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, officiis, ducimus accusamus perferendis fuga facere error mollitia architecto nulla eius ab odio deserunt necessitatibus dolorum eos aut sunt dignissimos expedita veniam illum voluptatem temporibus reprehenderit blanditiis ullam eum? Aperiam, similique, animi eum illo dolorum deserunt rem iusto repellat maxime eius voluptas saepe officia id ratione itaque nesciunt illum cum? Dolores nobis commodi dignissimos corporis nulla itaque. In est amet sunt necessitatibus dolorum? At, dolores, eum, molestias voluptatibus qui sed sit placeat vel dolore itaque beatae corrupti reiciendis eaque cumque aliquid? Delectus, quisquam, ut totam sint eaque itaque perspiciatis atque dolor! </p>
+							</div>
+					    </div>
+					    <div class="tab-pane fade" id="widget-tab-1-3">
+							<div class="innerAll">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, officiis, ducimus accusamus perferendis fuga facere error mollitia architecto nulla eius ab odio deserunt necessitatibus dolorum eos aut sunt dignissimos expedita veniam illum voluptatem temporibus reprehenderit blanditiis ullam eum? Aperiam, similique, animi eum illo dolorum deserunt rem iusto repellat maxime eius voluptas saepe officia id ratione itaque nesciunt illum cum? Dolores nobis commodi dignissimos corporis nulla itaque. In est amet sunt necessitatibus dolorum? At, dolores, eum, molestias voluptatibus qui sed sit placeat vel dolore itaque beatae corrupti reiciendis eaque cumque aliquid? Delectus, quisquam, ut totam sint eaque itaque perspiciatis atque dolor! </p>
+							</div>
+					    </div>
+				    </div>
+				</div> 
+			</div>
+			<div class="col-md-3">
+				<div class="widget widget-success widget-small half">
+    <div class="widget-head">
+        <a href="#" class="btn btn-success btn-xs pull-right"><i class="fa fa-plus"></i></a>
+        <div class="strong half">Upcoming Tasks</div>
+    </div>
+
+    <div class="widget-body padding-none">
+        <div class="">
+            <ul class="list-group margin-none">
+                <li class="list-group-item">
+                    <a href="#" class="close"><i class="fa fa-times"></i></a>
+                    <label class="checkbox-custom checkbox-custom-2">
+                        <input type="checkbox" name="checkbox" >
+                        <i class="fa fa-check-square-o "></i> <span>Wire &amp; Concept</span>
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="close"><i class="fa fa-times"></i></a>
+                    <label class="checkbox-custom checkbox-custom-2">
+                        <input type="checkbox" name="checkbox" >
+                        <i class="fa fa-check-square-o "></i> <span>UI design</span>
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="close"><i class="fa fa-times"></i></a>
+                    <label class="checkbox-custom checkbox-custom-2">
+                        <input type="checkbox" name="checkbox" />
+                        <i class="fa fa-check-square-o"></i> Finish HTML/CSS
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="close"><i class="fa fa-times"></i></a>
+                    <label class="checkbox-custom checkbox-custom-2">
+                        <input type="checkbox" name="checkbox" checked="checked">
+                        <i class="fa fa-check-square-o  checked"></i> <span>Burn Concept</span>
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="close"><i class="fa fa-times"></i></a>
+                    <label class="checkbox-custom checkbox-custom-2">
+                        <input type="checkbox" name="checkbox" checked="checked">
+                        <i class="fa fa-check-square-o  checked"></i> <span>Finish HTML/CSS</span>
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="close"><i class="fa fa-times"></i></a>
+                    <label class="checkbox-custom checkbox-custom-2">
+                        <input type="checkbox" name="checkbox" checked="checked">
+                        <i class="fa fa-check-square-o  checked"></i> <span>Finish HTML/CSS</span>
+                    </label>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+			</div>
+		</div>
+		<div class="widget innerAll half widget-primary widget-small">
+			<div class="strong innerB half">Project History</div>
+			<div id="clients-slider" class="carousel slide innerLR half margin-none" data-ride="carousel">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">First Draft</div>
+										<span  class="text-muted">19 December 2013</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">Logo Design</div>
+										<span  class="text-muted">04 January 2014</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">Dashboard v1</div>
+										<span  class="text-muted">20 January 2014</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">Dashboard Final</div>
+										<span  class="text-muted">15 February 2014</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">First Draft</div>
+										<span  class="text-muted">19 December 2013</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">Logo Design</div>
+										<span  class="text-muted">04 January 2014</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">Dashboard v1</div>
+										<span  class="text-muted">20 January 2014</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">Dashboard Final</div>
+										<span  class="text-muted">15 February 2014</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">First Draft</div>
+										<span  class="text-muted">19 December 2013</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">Logo Design</div>
+										<span  class="text-muted">04 January 2014</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">Dashboard v1</div>
+										<span  class="text-muted">20 January 2014</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="innerAll bg-white text-center border-all">
+									<img src="../assets/images/logo/logo.jpg" alt="photo" style="width:75px;">
+									<div class="innerTB half">
+										<div class="strong">Dashboard Final</div>
+										<span  class="text-muted">15 February 2014</span>
+									</div>
+									<a href="#" class="btn btn-default btn-sm"> View</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Indicators -->
+				<ol class="carousel-indicators innerT position-relative">
+					<li data-target="#clients-slider" data-slide-to="0" class="active "></li>
+					<li data-target="#clients-slider" data-slide-to="1" class=""></li>
+					<li data-target="#clients-slider" data-slide-to="2" class=""></li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="widget widget-small widget-primary">
+					<div class="widget-head ">
+						<div class="pull-left strong">
+							Other Feeds
+						</div>
+						<div class="pull-right">
+							<a href="#" class="btn btn-xs btn-default "> View All</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="widget-body padding-none">
+						<ul class="unstyled list-hands">
+							<li>
+								<div class="media">
+									<div class="pull-left">
+										<img src="../assets/images/people/50/2.jpg" alt="photo" width="35" class='media-object img-rounded '>				
+									</div>
+									<div class="media-body">
+										<div class="pull-right">
+											<i class="icon-tag-3"></i>
+										</div>
+										<a href="#">Adrian Demian</a> has <i class="fa fa-dollar icon-faded "></i> puchased <span class="label label-primary">Smart</span> <a href="#" class="text-muted small"> View</a>
+										<div class="text-muted-dark small">Yesterday <i class="fa fa-fw fa-clock-o"></i> 10:23 AM</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<div class="pull-left">
+										<img src="../assets/images/people/50/10.jpg" alt="photo" width="35" class='media-object img-rounded '>				
+									</div>
+									<div class="media-body">
+										<div class="pull-right">
+											<i class="icon-document-add"></i>
+										</div>
+										<a href="#">Laza Bogdan</a> has <i class="fa fa-plus-circle icon-faded "></i> added <span class="label label-info">Social </span> <a href="#" class="text-muted small"> View</a>
+										<div class="text-muted-dark small">Yesterday <i class="fa fa-fw fa-clock-o"></i> 09:20 AM</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<div class="pull-left">
+										<img src="../assets/images/people/50/2.jpg" alt="photo" width="35" class='media-object img-rounded '>				
+									</div>
+									<div class="media-body">
+										<div class="pull-right">
+											<i class="icon-browser-check"></i>
+										</div>
+										<a href="#">Demian Adrian</a> has <i class="fa fa-check-square icon-faded "></i> completed <span class="label label-success">Business </span> <a href="#" class="text-muted small"> View</a>
+										<div class="text-muted-dark small">Monday<i class="fa fa-fw fa-clock-o"></i> 07:35 AM</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<div class="pull-left">
+										<img src="../assets/images/people/50/10.jpg" alt="photo" width="35" class='media-object img-rounded '>				
+									</div>
+									<div class="media-body">
+										<div class="pull-right">
+											<i class="icon-thumbs-up"></i>
+										</div>
+										<a href="#">Laza Bogdan</a> has <i class="fa fa-check-circle icon-faded "></i> checked <span class="label label-default">Smart </span> <a href="#" class="text-muted small"> View</a>
+										<div class="text-muted-dark small">Monday <i class="fa fa-fw fa-clock-o"></i> 09:20 AM</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<div class="pull-left">
+										<img src="../assets/images/people/50/10.jpg" alt="photo" width="35" class='media-object img-rounded '>				
+									</div>
+									<div class="media-body">
+										<div class="pull-right">
+											<i class="icon-happy-wink"></i>
+										</div>
+										<a href="#">Laza Bogdan</a> has <i class="fa fa-thumbs-o-up icon-faded "></i> liked <span class="label label-primary">Smart </span> <a href="#" class="text-muted small"> View</a>
+										<div class="text-muted-dark small">Monday <i class="fa fa-fw fa-clock-o"></i> 09:20 AM</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<div class="pull-left">
+										<img src="../assets/images/people/50/2.jpg" alt="photo" width="35" class='media-object img-rounded '>				
+									</div>
+									<div class="media-body">
+										<div class="pull-right">
+											<i class="icon-refresh-star-fill"></i>
+										</div>
+										<a href="#">Demian Adrian</a> has <i class="fa fa-star-o icon-faded "></i> rated <span class="label label-warning">Business </span> <a href="#" class="text-muted small"> View</a>
+										<div class="text-muted-dark small">Monday<i class="fa fa-fw fa-clock-o"></i> 07:35 AM</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="widget widget-small widget-info">
+					<div class="widget-head">
+						<div class="pull-left strong">
+							Notifications
+						</div>
+						<div class="pull-right">
+							<a href="#" class="btn btn-xs btn-default "> View All</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="widget-body">
+						<div id="world-map-markers" style="height: 325px; overflow:hidden"></div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<div class="pull-right alert-wrapper hidden-xs">
+	<div class="alert alert-inverse fade in">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="icon-delete-symbol"></i></button>
+      <span class="title pull-left"><i class="icon-time-clock text-muted"> </i>  Alert!</span>
+      <div class="clearfix"></div>
+      <p class="content">A new ticket has been assigned <span class="text-warning">#9892</span></p>
+  	</div>
+</div>
+
+
+
+
+
+
+
+
+<!-- CREATE TASK MODAL -->
+<!-- Modal -->
+<div class="modal fade" id="modal-task">
+
+    <div class="modal-dialog">
+        <div class="modal-content bg-white">
+            <!-- Modal body -->
+            <div class="modal-body padding-none ">
+
+                <form class="form-horizontal " role="form">
+
+                        <div class="innerLR innerT">
+                            <div class="form-group">
+                                <label for="to" class="col-sm-2 control-label">Task:</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="to">
+                                        <div class="input-group-btn">
+                                            <button type="button" data-toggle="collapse" data-target="#cc" class="btn btn-default">Schedule <span class="caret"></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="cc" class="collapse">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Starts:</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group date datepicker2">
+    <input class="form-control" type="text" value="14 February 2013" />
+    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+</div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Ends:</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group date datepicker2">
+    <input class="form-control" type="text" value="14 February 2013" />
+    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Milestone:</label>
+                                <div class="col-sm-6">
+                                    <select class="selectpicker">
+                                        <option>HTML Validation</option>
+                                        <option>User Interface Design</option>
+                                        <option>Update Bootstrap 3.2</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Project:</label>
+                                <div class="col-sm-6">
+                                    <select class="selectpicker">
+                                        <option>Project #1</option>
+                                        <option>Project #2</option>
+                                        <option>Project #3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                    <div class="innerAll bg-white">
+                        <textarea class="notebook border-none form-control padding-none" rows="4" placeholder="Task description..."></textarea>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- // Modal body END -->
+
+            <div class="innerLR innerB text-right">
+                <a href="" class="btn btn-default"><i class="fa fa-times"></i> Cancel</a>
+                <a href="" class="btn btn-primary"><i class="fa  fa-check"></i> Submit</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- // Modal END -->
+
+
+
+
+<!-- // END MODAL -->
+
+		
+		</div>
+		<!-- // Content END -->
+		
+		<div class="clearfix"></div>
+		<!-- // Sidebar menu & content wrapper END -->
+		
+		<div id="footer" class="hidden-print">
+			
+			<!--  Copyright Line -->
+			<div class="copy">&copy; 2012 - 2014 - <a href="http://www.mosaicpro.biz">MosaicPro</a> - All Rights Reserved. <a href="http://themeforest.net/?ref=mosaicpro" target="_blank">Purchase SMART on ThemeForest</a> - Current version: v1.0.0-rc1 / <a target="_blank" href="../assets/../../CHANGELOG.txt?v=v1.0.0-rc1">changelog</a></div>
+			<!--  End Copyright Line -->
+	
+		</div>
+		
+		<!-- // Footer END -->
+		
+	</div>
+	<!-- // Main Container Fluid END -->
+	
+
+    <!-- Global -->
+    <script data-id="App.Config">
+                var basePath = '',
+            commonPath = '../assets/',
+            rootPath = '../',
+            DEV = false,
+            componentsPath = '../assets/components/';
+
+        var primaryColor = '#c72a25',
+            dangerColor = '#b55151',
+            successColor = '#609450',
+            infoColor = '#4a8bc2',
+            warningColor = '#ab7a4b',
+            inverseColor = '#45484d';
+
+        var themerPrimaryColor = primaryColor;
+
+                App.Config = {
+            ajaxify_menu_selectors: ['#menu'],
+            ajaxify_layout_app: false        };
+            </script>
+
+    
+</body>
+</html>

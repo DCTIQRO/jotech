@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^jotech.dctimx.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.jotech.dctimx.com$
+RewriteCond %{REQUEST_URI} !php/admin/
+RewriteRule (.*) /php/admin/$1 [L]
