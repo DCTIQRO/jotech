@@ -28,6 +28,7 @@ $renglones_proyectos = mysqli_query($esta, $sql);
     <div class="clearfix"></div>
     <div class="innerTB">
         <div class="row">
+			<?php while($renglon_proyecto = mysqli_fetch_assoc($renglones_proyectos)){?> 
             <div class="col-md-6">
                 <div class="widget widget-primary widget-small">
                     <div class="innerAll">
@@ -37,7 +38,7 @@ $renglones_proyectos = mysqli_query($esta, $sql);
                                 <h4>
                                     <a href="index.php?page=project_milestones&id=<?php echo $renglon_proyecto['id'];?>" class="media-heading"><?php echo $renglon_proyecto['nombre'];?></a>
                                 </h4>
-                                <p class="margin-none text-muted">Short description of the project</p>
+                                <p class="margin-none text-muted"><?php echo $renglon_proyecto['descripcion_corta'];?></p>
                             </div>
                         </div>
                         <form class="form-horizontal" role="form">
@@ -46,18 +47,29 @@ $renglones_proyectos = mysqli_query($esta, $sql);
                                     <label class="col-sm-2 control-label text-left">Progress:</label>
                                     <div class="col-md-4 col-sm-6 col-xs-10 innerT half">
                                         <div class="progress progress-mini">
-                                            <div class="progress-bar progress-bar-primary" style="width: 20%;"></div>
+											<?php 
+												$color="";
+												if($renglon_proyecto['progreso'] == 100){$color="success";}
+												if($renglon_proyecto['progreso'] >50 && $renglon_proyecto['progreso'] <100){$color="info";}
+												if($renglon_proyecto['progreso'] >0 && $renglon_proyecto['progreso'] <50){$color="primary";}
+											?>
+                                            <div class="progress-bar progress-bar-<?= $color ?>" style="width: <?php echo $renglon_proyecto['progreso'];?>%;"></div>
                                         </div>
                                     </div>
-                                    <label class="control-label text-left strong text-muted-dark">20 &#37;</label>
+                                    <label class="control-label text-left strong text-muted-dark"><?php echo $renglon_proyecto['progreso'];?> &#37;</label>
                                 </div>
                             </div>
                             <div class="widget widget-none bg-gray innerAll half margin-slim">
                                 <div class="row">
                                     <label class="col-sm-2 control-label text-left padding-top-none">Tags:</label>
                                     <div class="col-md-4 col-sm-6 col-xs-10 strong">
-                                        <a href=""><span class="label label-primary">HTML</span></a>
-                                        <a href=""><span class="label label-warning"> CSS</span></a>
+										<?php 
+											$query = "select * from proyectos_etiquetas where id_proyecto_fk = ".$renglon_proyecto['id'];
+											$tags = mysqli_query($esta, $query);
+											while($tag = mysqli_fetch_assoc($tags)){
+										?> 
+                                        <a href=""><span class="label label-primary"><?= $tag['etiqueta'] ?></span></a>
+										<?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -86,6 +98,7 @@ $renglones_proyectos = mysqli_query($esta, $sql);
                     </div>
                 </div>
             </div>
+			<?php } ?>
             <div class="col-md-6">
                 <div class="widget widget-success widget-small">
                     <div class="innerAll">
