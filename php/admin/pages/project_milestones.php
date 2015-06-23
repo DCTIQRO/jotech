@@ -122,7 +122,7 @@ $renglones_proyectos_etapas_tareas = mysqli_query($esta, $sql);
                 <div class="widget-body padding-none">
                     <ul class="timeline-activity project list-unstyled">
 						<?php 
-							$query = "select pc.fecha, u.id usuario,u.nombre,pc.comentario, u.imagen, tc.nombre as tipo from proyectos_comentarios pc JOIN usuarios u on u.id = pc.id_usuario_fk JOIN Tipo_comentario tc on tc.id_tipo=pc.tipo where pc.id_proyecto_fk = ".$id;
+							$query = "select pc.fecha,pc.id comentar, u.id usuario,u.nombre,pc.comentario, u.imagen, tc.nombre as tipo from proyectos_comentarios pc JOIN usuarios u on u.id = pc.id_usuario_fk JOIN Tipo_comentario tc on tc.id_tipo=pc.tipo where pc.id_proyecto_fk = ".$id;
 							$comentarios = mysqli_query($esta, $query);
 							while($comentar = mysqli_fetch_assoc($comentarios)){
 						?> 
@@ -134,24 +134,47 @@ $renglones_proyectos_etapas_tareas = mysqli_query($esta, $sql);
                             <div class="block block-inline">
                                 <div class="caret"></div>
                                 <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
+                                    <div id="prueba" class="media">
+                                        <a class="pull-left" href="javascript:void(0)">
                                             <img class="media-object img-rounded hidden-xs" src="imagenes/<?= $comentar['imagen'] ?>" width="45" alt="..." />
                                         </a>
                                         <div class="media-body">
                                             <a href="" class="media-heading innerR "><?= $comentar['nombre'] ?></a>
                                             <label class="label label-default"># <?= $comentar['usuario'] ?></label>
                                             <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
+                                                <a href="javascript:void(0)" onclick="ver_submensaje(<?= $comentar['comentar'] ?>)" class="text-primary"><i class="fa fa-reply"></i></a>
                                             </label>
                                             <label class="label label-success">
-                                                <a href="" class="text-success"><i class="fa fa-envelope-o"></i> <?= $comentar['tipo'] ?> </a>
+                                                <div class="text-success"><i class="fa fa-envelope-o"></i> <?= $comentar['tipo'] ?> </div>
                                             </label>
                                             <div class="clearfix"></div>
                                             <?= $comentar['comentario'] ?>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
+									<div id="mensaje<?= $comentar['comentar'] ?>" class="hidden">
+										<?php 
+											$query2 = "select pc.id,pc.subcomentario, u.imagen from proyectos_subcomentarios pc JOIN usuarios u on u.id = pc.id_usuario where pc.id_proyecto_comentario = ".$comentar['comentar'];
+											$subcomentarios = mysqli_query($esta, $query2);
+											while($subcomentar = mysqli_fetch_assoc($subcomentarios)){
+										?> 
+										<div class="media" Style="padding-left:45px">
+											<a class="pull-left" href="#">
+												<img class="media-object img-rounded hidden-xs" src="imagenes/<?= $subcomentar['imagen'] ?>" width="25" alt="..." />
+											</a>
+											<div class="media-body">
+												<span><?= $subcomentar['subcomentario'] ?></span>
+											</div>
+										</div>
+										<?php } ?>
+										<div class="media" Style="padding-left:45px">
+											<form action="/php/admin/pages/agregar_proyecto_subcomentario.php" method="post">
+												<input type="hidden" name="proyecto" value="<?= $id ?>" />
+												<input type="hidden" name="id_comentario" value="<?= $comentar['comentar'] ?>" />
+												<input class="form-control" name="subcomentario" placeholder="Escribe tu respuesta..."/><button type="submit" class="btn-xs btn-success">Enviar</button>
+											</form>
+										</div>
+									</div>
                                 </div>
                             </div>
                         </li>
@@ -356,5 +379,19 @@ $renglones_proyectos_etapas_tareas = mysqli_query($esta, $sql);
 	
 </div>
 <!-- // Modal END -->
+
+<script>
+function ver_submensaje(id)
+{
+	if(	$("#mensaje"+id).hasClass("hidden"))
+	{
+		$('#mensaje'+id).removeClass('hidden');
+	}
+	else
+	{
+		$('#mensaje'+id).addClass('hidden');
+	}
+}
+</script>
 
 
