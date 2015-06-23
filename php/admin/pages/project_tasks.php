@@ -55,11 +55,13 @@ $renglones_proyecto_tarea_checklist = mysqli_query($esta, $sql);
                 <div class="widget-body">
                     <p class="lead"><?php echo nl2br($renglon_proyecto_tarea['descripcion']);?></p>
                     <hr/>
-                    <div class="innerT">
-                        <h4 class="strong innerB half" style="width:80%; float:left;">
+                    <div id="xtx" style="float:left; margin:10px 0;">
+                        <h4 class="strong innerB half" style="width:150%; float:left;">
                             Checklist
                         </h4>
-                        <a href="#modal_agregar_checklist" data-toggle="modal" class="btn btn-success btn-xs pull-right" style="z-index:99; position:absolute; float:right;">Agregar <i class="icon-add-symbol"></i></a>
+                        <a href="#modal_agregar_checklist" data-toggle="modal" class="btn btn-success btn-xs pull-right" style="z-index:99; position:absolute; right:20px;">Agregar <i class="icon-add-symbol"></i></a>
+                    </div>
+                    <div class="innerT" style="padding-top:40px;">
                         
                         <ul class="list-group bg-gray margin-none" style="margin-top:20px;">
                             <?php while($renglon_proyecto_tarea_checklist = mysqli_fetch_assoc($renglones_proyecto_tarea_checklist)){?>
@@ -71,27 +73,9 @@ $renglones_proyecto_tarea_checklist = mysqli_query($esta, $sql);
                                 </label>
                             </li>
                             <?php }?>
-                            <li class="list-group-item">
-                                <a href="#" class="close"><i class="fa fa-times"></i></a>
-                                <label class="checkbox-custom checkbox-custom-2">
-                                    <input type="checkbox" name="checkbox" />
-                                    <i class="fa fa-check-square-o"></i> Finish HTML/CSS 
-                                </label>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="#" class="close"><i class="fa fa-times"></i></a>
-                                <label class="checkbox-custom checkbox-custom-2">
-                                    <input type="checkbox" name="checkbox" checked="checked">
-                                    <i class="fa fa-check-square-o checked"></i> <span>Burn Concept</span> 
-                                </label>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="#" class="close"><i class="fa fa-times"></i></a>
-                                <label class="checkbox-custom checkbox-custom-2">
-                                    <input type="checkbox" name="checkbox" checked="checked">
-                                    <i class="fa fa-check-square-o checked"></i> <span>Finish HTML/CSS</span> 
-                                </label>
-                            </li>
+                            
+                            
+                            
                         </ul>
                         <!-- END CHECKLIST -->
                     </div>
@@ -346,7 +330,7 @@ $renglones_proyecto_tarea_checklist = mysqli_query($esta, $sql);
 						<form class="form-horizontal" role="form" action="/php/admin/pages/agregar_tarea_checklist.php" method="post">
     
     <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
+        <label for="inputEmail3" class="col-sm-2 control-label">Concepto</label>
         <div class="col-sm-10">
             <input type="hidden" id="id_tarea" name="id_tarea" value="<?php echo $id_tarea;?>">
             <input type="text" id="nombre" name="nombre">

@@ -1,17 +1,17 @@
 <!-- Tabs Heading -->
 <div class="widget-head bg-background text-center">
     <ul>
-        <li>
-            <a class="glyphicons lock" href="?page=user"> <i></i>Account Details </a>
-        </li>
         <li class="active">
-            <a class="glyphicons clock" href="?page=user&amp;section=projects"> <i></i>Projects &amp; Tasks </a>
+            <a class="glyphicons lock" href="?page=user"> <i></i>Detalles Cuenta </a>
         </li>
         <li>
-            <a class="glyphicons envelope" href="?page=user&amp;section=messages"> <i></i>Messages </a>
+            <a class="glyphicons clock" href="?page=user&amp;section=projects"> <i></i>Proyectos &amp; Tareas </a>
         </li>
         <li>
-            <a class="glyphicons share_alt" href="?page=user&amp;section=history"> <i></i>History Log </a>
+            <a class="glyphicons envelope" href="?page=user&amp;section=messages"> <i></i>Mensajes </a>
+        </li>
+        <li>
+            <a class="glyphicons share_alt" href="?page=user&amp;section=history"> <i></i>Bitacora Log </a>
         </li>
     </ul>
 </div>
