@@ -1,4 +1,4 @@
-<div class="innerLR">
+ <div class="innerLR">
     <h1 class="pull-left">
         Projects &nbsp; 
         <a href="index.php?page=project_milestones" class="btn btn-success">Add Project <i class="icon-add-symbol"></i> </a>
