@@ -121,380 +121,41 @@ $renglones_proyectos_etapas_tareas = mysqli_query($esta, $sql);
                 </div>
                 <div class="widget-body padding-none">
                     <ul class="timeline-activity project list-unstyled">
+						<?php 
+							$query = "select pc.fecha, u.id usuario,u.nombre,pc.comentario, u.imagen, tc.nombre as tipo from proyectos_comentarios pc JOIN usuarios u on u.id = pc.id_usuario_fk JOIN Tipo_comentario tc on tc.id_tipo=pc.tipo where pc.id_proyecto_fk = ".$id;
+							$comentarios = mysqli_query($esta, $query);
+							while($comentar = mysqli_fetch_assoc($comentarios)){
+						?> 
                         <li class="">
                             <span class="list-date">
-<span class="day">16</span>
-<span class="month">March</span>
-</span>
+								<span class="day"><?= date('d',strtotime($comentar['fecha'])) ?></span>
+								<span class="month"><?= date('M',strtotime($comentar['fecha'])) ?></span>
+							</span>
                             <div class="block block-inline">
                                 <div class="caret"></div>
                                 <div class="">
                                     <div class="media">
                                         <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/1.jpg" width="45" alt="..." />
+                                            <img class="media-object img-rounded hidden-xs" src="imagenes/<?= $comentar['imagen'] ?>" width="45" alt="..." />
                                         </a>
                                         <div class="media-body">
-                                            <a href="" class="media-heading innerR ">Suzanne Marie</a>
-                                            <label class="label label-default"># 30</label>
+                                            <a href="" class="media-heading innerR "><?= $comentar['nombre'] ?></a>
+                                            <label class="label label-default"># <?= $comentar['usuario'] ?></label>
                                             <label class="label label-primary">
                                                 <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
                                             </label>
                                             <label class="label label-success">
-                                                <a href="" class="text-success"><i class="fa fa-lock"></i> Completed </a>
+                                                <a href="" class="text-success"><i class="fa fa-envelope-o"></i> <?= $comentar['tipo'] ?> </a>
                                             </label>
                                             <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur repellendus amet distinctio inventore possimus cum dicta enim!.. 
+                                            <?= $comentar['comentario'] ?>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">14</span>
-<span class="month">March</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/2.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">Adrian Demian</a>
-                                            <label class="label label-default"># 100</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-danger">Important</label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>. Fugiat molestiae qui fuga .. 
-                                            <div class="clearfix"></div>
-                                            <div class="attachement innerT">
-                                                <a href="#" class="glyphicons-filetype doc"><i></i></a>
-                                                <a href="#" class="glyphicons-filetype pdf"><i></i></a>
-                                                <a href="#" class="glyphicons-filetype rtf"><i></i></a>
-                                                <a href="#" class="glyphicons-filetype csv"><i></i></a>
-                                                <a href="#" class="glyphicons-filetype ppt"><i></i></a>
-                                                <a href="#" class="glyphicons-filetype html"><i></i></a>
-                                                <a href="#" class="glyphicons-filetype zip"><i></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">29</span>
-<span class="month">March</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/3.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">Mary Dawson</a>
-                                            <label class="label label-default"># 74</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-success">
-                                                <a href="" class="text-success"><i class="fa fa-lock"></i> Completed </a>
-                                            </label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur repellendus amet distinctio inventore possimus cum dicta enim!.. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">11</span>
-<span class="month">March</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/4.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">John Carsten</a>
-                                            <label class="label label-default"># 75</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-danger">Important</label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>. Fugiat molestiae qui fuga .. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">11</span>
-<span class="month">March</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/5.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">Suzanne Marie</a>
-                                            <label class="label label-default"># 11</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-success">
-                                                <a href="" class="text-success"><i class="fa fa-lock"></i> Completed </a>
-                                            </label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur repellendus amet distinctio inventore possimus cum dicta enim!.. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">25</span>
-<span class="month">February</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/6.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">Bogdan Laza</a>
-                                            <label class="label label-default"># 76</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-danger">Important</label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>. Fugiat molestiae qui fuga .. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">30</span>
-<span class="month">February</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/7.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">Stephanie</a>
-                                            <label class="label label-default"># 59</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-success">
-                                                <a href="" class="text-success"><i class="fa fa-lock"></i> Completed </a>
-                                            </label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur repellendus amet distinctio inventore possimus cum dicta enim!.. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">25</span>
-<span class="month">February</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/8.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">John Carsten</a>
-                                            <label class="label label-default"># 21</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-danger">Important</label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>. Fugiat molestiae qui fuga .. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">14</span>
-<span class="month">February</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/9.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">girl381</a>
-                                            <label class="label label-default"># 98</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-success">
-                                                <a href="" class="text-success"><i class="fa fa-lock"></i> Completed </a>
-                                            </label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur repellendus amet distinctio inventore possimus cum dicta enim!.. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">27</span>
-<span class="month">February</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/10.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">Bogdan Laza</a>
-                                            <label class="label label-default"># 65</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-danger">Important</label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>. Fugiat molestiae qui fuga .. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">28</span>
-<span class="month">February</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/11.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">Suzanne Marie</a>
-                                            <label class="label label-default"># 58</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-success">
-                                                <a href="" class="text-success"><i class="fa fa-lock"></i> Completed </a>
-                                            </label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur repellendus amet distinctio inventore possimus cum dicta enim!.. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">15</span>
-<span class="month">February</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/12.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">Suzanne Marie</a>
-                                            <label class="label label-default"># 55</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-danger">Important</label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>. Fugiat molestiae qui fuga .. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <span class="list-date">
-<span class="day">28</span>
-<span class="month">February</span>
-</span>
-                            <div class="block block-inline">
-                                <div class="caret"></div>
-                                <div class="">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-rounded hidden-xs" src="../assets/images/people/50/13.jpg" width="45" alt="..." />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="" class="media-heading innerR ">John Carsten</a>
-                                            <label class="label label-default"># 97</label>
-                                            <label class="label label-primary">
-                                                <a href="#" class="text-primary"><i class="fa fa-reply"></i></a>
-                                            </label>
-                                            <label class="label label-success">
-                                                <a href="" class="text-success"><i class="fa fa-lock"></i> Completed </a>
-                                            </label>
-                                            <div class="clearfix"></div>
-                                            <strong>Milestone Title</strong> Lorem ipsum dolor sit amet, consectetur repellendus amet distinctio inventore possimus cum dicta enim!.. 
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+						<?php } ?>
                     </ul>
                 </div>
             </div>
