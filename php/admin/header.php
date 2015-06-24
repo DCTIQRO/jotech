@@ -189,7 +189,7 @@ echo '
                                 <li class="hidden-xs">Tareas completas: <strong class="text-primary">24</strong></li>
                                 <li class="dropdown username hidden-xs ">
                                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="./imagenes/<?php echo $renglon_usuario['imagen'];?>" height="35px" width="35px" class="img-circle" alt="Profile" />
+                                        
                                         <?php echo $renglon_usuario['correo'];?> <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu pull-right">

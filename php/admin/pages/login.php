@@ -24,9 +24,7 @@ $_SESSION['login']=="1";
                 </h3>
                 <div class="lock-container">
                     <div class=" text-center">
-                        <a href="" >
-                            <img src="../assets/images/people/100/8.jpg" alt="people" class=""/>
-                        </a>
+                        
                         <div class="innerAll">
                             <input class="form-control text-center bg-gray" id="correo" name="correo" type="text" placeholder="Correo"/>
                             <div class="innerB half"></div>

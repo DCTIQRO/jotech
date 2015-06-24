@@ -21,7 +21,7 @@ $renglones_clientes = mysqli_query($esta, $sql);
             <a class="btn btn-default filled"><i class="fa fa-download"></i></a>
         </div>
         <div class="media">
-            <img src="" class="pull-left thumbnail" alt="Profile" />
+            
             <div class="media-body innerAll half">
                 <h3>
                     <a href="#" class="text-regular "></a> <span class="lead text-muted"></span> 

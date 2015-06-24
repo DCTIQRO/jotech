@@ -7,9 +7,7 @@
         <li>
             <a class="glyphicons clock" href="?page=user&amp;section=projects"> <i></i>Projects &amp; Tasks </a>
         </li>
-        <li>
-            <a class="glyphicons envelope" href="?page=user&amp;section=messages"> <i></i>Messages </a>
-        </li>
+        
         <li class="active">
             <a class="glyphicons share_alt" href="?page=user&amp;section=history"> <i></i>History Log </a>
         </li>

@@ -31,9 +31,7 @@ $renglon_usuario = mysqli_fetch_assoc($renglones_usuarios);
         <li>
             <a class="glyphicons clock" href="?page=user&amp;section=projects"> <i></i>Proyectos &amp; Tareas </a>
         </li>
-        <li>
-            <a class="glyphicons envelope" href="?page=user&amp;section=messages"> <i></i>Mensajes </a>
-        </li>
+        
         <li>
             <a class="glyphicons share_alt" href="?page=user&amp;section=history"> <i></i>Bitacora Log </a>
         </li>

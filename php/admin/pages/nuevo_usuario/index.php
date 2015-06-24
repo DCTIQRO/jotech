@@ -12,14 +12,7 @@
     <form class="" action="/php/admin/pages/agregar_usuario.php" method="post" enctype="multipart/form-data">
     <div class="row innerAll inner-2x">
         <div class="col-sm-6">
-            <div class="form-group">
-                 <label for="imagen">Imagen de usuario:</label>
-            <div class="fileupload fileupload-new margin-none" data-provides="fileupload">
-  	<span class="btn btn-default btn-file"><span class="fileupload-new">Seleccionar Archivo</span><span class="fileupload-exists">Change</span><input type="file" class="margin-none" id="imagen" name="imagen" /></span>
-  	<span class="fileupload-preview"></span>
-  	<a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">&times;</a>
-</div>   
-            </div>
+            
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
                     <input class="form-control" name="nombre" type="text" value="<?php echo $renglon_cliente['nombre'];?>" id="nombre">

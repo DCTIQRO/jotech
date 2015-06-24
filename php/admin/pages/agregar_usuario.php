@@ -6,7 +6,7 @@ extract($_POST);
 
 $aux_imagen=$_FILES["imagen"]["name"];
 
-$sql = "insert into usuarios (nombre,calle,numero,entre_calles,colonia,ciudad,estado,detalles,website,correo,telefono,pais,contrasena,tipo,fecha_nacimiento,imagen) values ('$nombre','$calle','$numero','$entre_calles','$colonia','$ciudad','$estado','$detalles','$website','$correo','$telefono','$pais','$contrasena','$tipo','$fecha_nacimiento','$aux_imagen')";
+$sql = "insert into usuarios (nombre,calle,numero,entre_calles,colonia,ciudad,estado,detalles,website,correo,telefono,pais,contrasena,tipo,fecha_nacimiento) values ('$nombre','$calle','$numero','$entre_calles','$colonia','$ciudad','$estado','$detalles','$website','$correo','$telefono','$pais','$contrasena','$tipo','$fecha_nacimiento')";
 $resultado_query = mysqli_query($esta, $sql);
 
 //echo $sql;

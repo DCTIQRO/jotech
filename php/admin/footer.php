@@ -236,6 +236,57 @@ $renglones_proyectos = mysqli_query($esta, $sql);
 								</div>
                                     
 								<!-- // Step 2 END -->
+                                        
+                                        
+                                <!-- Step 3 -->
+                                
+								<div class="tab-pane" id="tab2-2">
+                                    <form id="form_tarea" method="post" action="/php/admin/pages/agregar_cliente_tarea.php">
+									<div class="row">
+										
+										<div class="col-md-9">
+											<label>Nombre:</label>
+											<input class="form-control" type="text" id="nombre" name="nombre">
+										</div>
+                                        <div class="col-md-9">
+											<label>Nombre:</label>
+											<textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+										</div>
+                                        <div class="col-md-9">
+                                    <label class="col-sm-2 control-label">Fecha Inicio:</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group date datepicker1">
+    <input class="form-control" id="fecha_inicio" name="fecha_inicio" type="text" value="2013-02-14" />
+    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+</div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <label class="col-sm-2 control-label">Fecha Fin:</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group date datepicker1">
+    <input class="form-control" id="fecha_fin" name="fecha_fin" type="text" value="2013-02-14" />
+    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+</div>
+
+                                    </div>
+									</div>
+                                        <div class="col-md-9">
+                                    <select id="proyecto" name="proyecto" class="selectpicker">
+                                        <?php
+
+                                        $sql = "select * from proyectos order by nombre asc";
+                                        $renglones_proyectos = mysqli_query($esta, $sql);
+
+                                            while($renglon_proyecto = mysqli_fetch_assoc($renglones_proyectos)){ ?>
+                                        <option value="<?php echo $renglon_proyecto['id'];?>"><?php echo $renglon_proyecto['nombre'];?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+								</div>
+                                    
+								<!-- // Step 3 END -->
 								
 								
 								
