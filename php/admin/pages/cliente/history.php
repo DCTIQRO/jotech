@@ -13,6 +13,12 @@
         <li class="active">
             <a class="glyphicons share_alt" href="?page=user&amp;section=history"> <i></i>History Log </a>
         </li>
+		<li>
+            <a class="glyphicons share_alt" href="?page=cliente&amp;section=contactos&id=<?php echo $_GET['id']; ?>"> <i></i>Contactos</a>
+        </li>
+		<li>
+            <a class="glyphicons share_alt" href="?page=cliente&amp;section=permisos&id=<?php echo $_GET['id']; ?>"> <i></i>Permisos</a>
+        </li>
     </ul>
 </div>
 <!-- // Tabs Heading END -->
