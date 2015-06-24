@@ -1,4 +1,9 @@
-<?php require_once( getcwd().'/pages/esta.php'); ?>
+<?php 
+require_once( getcwd().'/pages/esta.php'); 
+$sql = "select u.nombre,u.id from proyectos_usuarios pu JOIN proyectos p on p.id=pu.id_proyecto_fk JOIN usuarios u on u.id=pu.id_usuario_fk where id_cliente_fk=".$_GET['id']." GROUP BY pu.id_usuario_fk";
+$usuarios = mysqli_query($esta, $sql);
+?>
+
 <link rel="stylesheet" type="text/css" href="../assets/plugins/AnimatedCheckboxes/css/component.css" />
 <div class="widget-head bg-background text-center">
     <ul>
@@ -25,15 +30,52 @@
 
 <div class="widget-body">
     <div class="row">
-		<form >
+		<?php while($usuario = mysqli_fetch_assoc($usuarios)){?> 
+		<div class="col-sm-12 "><?= $usuario['nombre'] ?></div>
 			<?php 
-				//$sql = "select * from proyectos order by fecha_insercion desc";
-				//$renglones_proyectos = mysqli_query($esta, $sql);
-			?>
-			<div class="col-sm-3 ">Nombre</div>
-			<div class="col-sm-2 "><label class="radio"><input id="ver" name="permisos" type="radio"><span class="outer"><span class="inner"></span></span>Ver</label></div>
-			<div class="col-sm-4 "><label class="radio"><input id="modificar" name="permisos" type="radio"><span class="outer"><span class="inner"></span></span>Ver/Modificar</label></div>
-			<div class="col-sm-3 "><label class="radio"><input id="ninguno" name="permisos" type="radio"><span class="outer"><span class="inner"></span></span>Ninguno</label></div>
-		</form>
+				$sql2 = "select p.nombre,pu.permiso,pu.id from proyectos_usuarios pu JOIN proyectos p on p.id=pu.id_proyecto_fk where pu.id_usuario_fk=".$usuario['id']." AND id_cliente_fk=".$_GET['id'];
+				$proyectos= mysqli_query($esta, $sql2);
+				while($proyecto = mysqli_fetch_assoc($proyectos)){
+			?> 
+			<form id="proyecto<?= $proyecto['id'] ?>" data-id="<?= $proyecto['id'] ?>" class="users-proyec">
+				<div class="col-sm-3 "><?= $proyecto['nombre'] ?></div>
+				<?php 
+					$checket="";
+					if($proyecto['permiso'] == 1){$checket="checked";} 
+				?>
+				<div class="col-sm-3 "><label class="radio"><input id="ver<?= $proyecto['id'] ?>" name="permisos<?= $proyecto['id'] ?>" type="radio" <?= $checket ?> value="1" ><span class="outer"><span class="inner"></span></span>Ver</label></div>
+				<?php 
+					$checket="";
+					if($proyecto['permiso'] == 2){$checket="checked";} 
+				?>
+				<div class="col-sm-3 "><label class="radio"><input id="modificar<?= $proyecto['id'] ?>" name="permisos<?= $proyecto['id'] ?>" type="radio" <?= $checket ?> value="2" ><span class="outer"><span class="inner"></span></span>Ver/Modificar</label></div>
+				<?php 
+					$checket="";
+					if($proyecto['permiso'] == 0){$checket="checked";} 
+				?>
+				<div class="col-sm-3 "><label class="radio"><input id="ninguno<?= $proyecto['id'] ?>" name="permisos<?= $proyecto['id'] ?>" type="radio" <?= $checket ?> value="0" ><span class="outer"><span class="inner"></span></span>Ninguno</label></div>
+			</form>
+			<?php } ?>
+		<?php } ?>
+		<div class="col-xs-12 text-center">
+			<a href="javascript:void(0)" onClick="guardar_permisos()" class="btn btn-success">GUARDAR</a>
+		</div>
 	</div>
 </div>
+
+<script>
+function guardar_permisos()
+{
+	var nombreDelObjeto=new Array();
+	var x=0;
+	$( ".users-proyec" ).each(function() {
+		id=$(this).attr('data-id');
+		per=$('input[name=permisos'+id+']:checked').val();
+		
+		nombreDelObjeto[x] = { proyecto: id, permiso: per };
+		x++;
+	});
+	
+	//alert(JSON.stringify(nombreDelObjeto, null, '    '));
+}
+</script>
