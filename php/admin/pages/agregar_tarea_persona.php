@@ -8,7 +8,7 @@ extract($_POST);
 
 
 
-$sql = "insert into tareas_usuarios (id_tarea_fk,id_usuario_fk) values ('$id_tarea','$usuario')";
+$sql = "insert into tareas_usuarios (id_tarea_fk,id_usuario_fk,tipo) values ('$id_tarea','$usuario','$tipo')";
 $resultado_query = mysqli_query($esta, $sql);
 
 
@@ -19,8 +19,11 @@ $resultado_query = mysqli_query($esta, $sql);
     
         
     
-    
+    if($tipo==0)
     header("Location: http://jotech.dctimx.com/php/admin/index.php?page=project_tasks&id_tarea=$id_tarea");
+else
+    header("Location: http://jotech.dctimx.com/php/admin/index.php?page=project_tasks&id_tarea=$id_tarea&cliente=1");
+
 die();
 
 

@@ -16,10 +16,11 @@ $sql = "select t1.*,t2.tipo as tipo_proyecto from proyectos t1, tipo_proyectos t
 $renglones_proyectos = mysqli_query($esta, $sql);
 $renglon_proyecto = mysqli_fetch_assoc($renglones_proyectos);
 
-
+$tipo=0;
 
 if(isset($_GET['cliente'])){
     $sql = "select * from clientes_tareas where id=$id_tarea";
+    $tipo=1;
     
 }
 else{
@@ -27,19 +28,21 @@ $sql = "select * from proyectos_tareas where id=$id_tarea";
 }
 //echo $sql;
 
+
+
 $renglones_proyectos_tareas = mysqli_query($esta, $sql);
 $renglon_proyecto_tarea = mysqli_fetch_assoc($renglones_proyectos_tareas);
 
 //echo $_SERVER[''];
 
 
-$sql = "select * from usuarios where id not in (select id_usuario_fk from tareas_usuarios where id_tarea_fk=$id_tarea) and id in (select id_usuario_fk from proyectos_usuarios where id_proyecto_fk=$id)";
+$sql = "select * from usuarios where id not in (select id_usuario_fk from tareas_usuarios where id_tarea_fk=$id_tarea and tipo=$tipo) and id in (select id_usuario_fk from proyectos_usuarios where id_proyecto_fk=$id)";
 
 //echo $sql;
 
 $renglones_usuarios = mysqli_query($esta, $sql);
 
-$sql = "select * from usuarios where id in (select id_usuario_fk from tareas_usuarios where id_tarea_fk=$id_tarea)";
+$sql = "select * from usuarios where id in (select id_usuario_fk from tareas_usuarios where id_tarea_fk=$id_tarea and tipo=$tipo)";
 $renglones_proyecto_usuarios = mysqli_query($esta, $sql);
 
 $sql = "select * from proyectos_tareas_checklist where id_proyecto_tarea_fk=$id_tarea";
@@ -276,6 +279,7 @@ $renglones_proyecto_tarea_checklist = mysqli_query($esta, $sql);
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
         <div class="col-sm-10">
+            <input type="hidden" id="tipo" name="tipo" value="<?php echo $tipo;?>">
             <input type="hidden" id="id_tarea" name="id_tarea" value="<?php echo $id_tarea;?>">
             <select id="usuario" name="usuario">
                 <?php while($renglon_usuario = mysqli_fetch_assoc($renglones_usuarios)){?>

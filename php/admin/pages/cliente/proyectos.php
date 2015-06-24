@@ -108,7 +108,7 @@ $renglones_tareas = mysqli_query($esta, $sql);
                     </div>
                     <div class="media-body">
                         <h4>
-                            <a href="index.php?page=project_tasks&id_tarea=<?php echo $renglon_tarea['id']; ?>&cliente=1" data-toggle="collapse"> <?php echo $renglon_tarea['nombre']; ?></a>
+                            <a href="index.php?page=project_tasks&id_tarea=<?php echo $renglon_tarea['id']; ?>&cliente=1"> <?php echo $renglon_tarea['nombre']; ?></a>
                         </h4>
                         <div class="innerR"> <span class="strong">Entrega: </span> <span> <?php echo $renglon_tarea['fecha_fin']; ?></span> </div>
                     </div>
