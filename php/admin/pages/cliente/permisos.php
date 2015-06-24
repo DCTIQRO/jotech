@@ -20,3 +20,8 @@
         </li>
     </ul>
 </div>
+
+<div class="widget-body">
+    <div class="row">
+	</div>
+</div>
