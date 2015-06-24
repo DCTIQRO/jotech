@@ -1,5 +1,7 @@
 <?php
 
+header("Location:index.php?page=nuevo_proyecto");
+
 require_once( getcwd().'/pages/esta.php');
 
 extract($_GET);

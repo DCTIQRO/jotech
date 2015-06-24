@@ -302,7 +302,7 @@ $renglones_proyectos_etapas_tareas = mysqli_query($esta, $sql);
         </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Agregar Etapa</button>
+            <button type="submit" class="btn btn-primary">Agregar Maquina</button>
         </div>
     </div>
 </form>
