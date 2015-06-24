@@ -11,7 +11,7 @@ $id_usuario=$_GET['id_usuario'];
 
 require_once( getcwd().'/pages/esta.php');
 
-$sql = "select t1.*,t2.tipo as tipo_proyecto from proyectos t1, tipo_proyectos t2 where t1.id in (select id_proyecto_fk from proyectos_usuarios where id_usuario_fk=$id_usuario) and t1.tipo=t2.id";
+$sql = "select t1.*,t2.tipo as tipo_proyecto from proyectos t1, tipo_proyectos t2 where t1.id_cliente_fk=$id and t1.tipo=t2.id";
 
 //echo $sql;
 
@@ -19,7 +19,8 @@ $renglones_proyectos = mysqli_query($esta, $sql);
 
 
 
-$sql = "select * from proyectos_tareas where id in (select id_tarea_fk from tareas_usuarios where id_usuario_fk=$id_usuario)";
+$sql = "select * from clientes_tareas where id_cliente_fk =$id";
+
 
 //echo $sql;
 
@@ -66,7 +67,7 @@ $renglones_tareas = mysqli_query($esta, $sql);
                             <div class="pull-left innerR half hidden-xs"> <i class="icon-tv-play fa-4x icon-faded"></i> </div>
                             <div class="media-body">
                                 <h4>
-                                    <a href="index.php?page=project_milestones" class="media-heading"><?php echo $renglon_proyecto['nombre']; ?></a>
+                                    <a href="index.php?page=project_milestones&id=<?php echo $renglon_proyecto['id']; ?>" class="media-heading"><?php echo $renglon_proyecto['nombre']; ?></a>
                                 </h4>
                                 <p class="text-muted"><?php echo $renglon_proyecto['descripcion_corta']; ?></p>
                                 <div class="clearfix"></div>
@@ -94,57 +95,28 @@ $renglones_tareas = mysqli_query($esta, $sql);
         </div>
         <div class="col-md-6">
             <h4 class="innerB">
-                Milestones &amp; Tasks
+                Tareas
             </h4>
+            <?php while($renglon_tarea = mysqli_fetch_assoc($renglones_tareas)){?>
             <div class="widget widget-primary widget-small">
                 <div class="media innerAll half bg-white">
                     <div class="pull-left h1 media-object hidden-xs margin-none innerR"> <i class=" icon-alarm-clock icon-faded fa-fw"></i> </div>
                     <div class="pull-right text-right">
-                        <span class="label label-danger">Urgent</span> 
+                        <!--<span class="label label-danger">Urgent</span> 
                         <div class="strong text-muted innerT half"> 4 Tasks </div>
+                            -->
                     </div>
                     <div class="media-body">
                         <h4>
-                            <a href="#task1" data-toggle="collapse"> Step 1 of HTML</a>
+                            <a href="index.php?page=project_tasks&id_tarea=<?php echo $renglon_tarea['id']; ?>&cliente=1" data-toggle="collapse"> <?php echo $renglon_tarea['nombre']; ?></a>
                         </h4>
-                        <div class="innerR"> <span class="strong">Due: </span> <span> 21 April 2014</span> </div>
+                        <div class="innerR"> <span class="strong">Entrega: </span> <span> <?php echo $renglon_tarea['fecha_fin']; ?></span> </div>
                     </div>
                 </div>
-                <ul class="list-group border-top collapse in" id="task1">
-                    <li class="list-group-item">
-                        <a href="index.php?page=project_tasks" class="text-regular strong"><i class="fa fa-check-square-o icon-faded fa-fw"></i> My specific task</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="index.php?page=project_tasks" class="text-regular strong"><i class="fa fa-check-square-o icon-faded fa-fw"></i> My specific task</a>
-                    </li>
-                </ul>
+                
             </div>
-            <div class="widget widget-warning widget-small">
-                <div class="media innerAll half bg-white">
-                    <div class="pull-left h1 media-object hidden-xs margin-none innerR"> <i class=" icon-alarm-clock icon-faded fa-fw"></i> </div>
-                    <div class="pull-right text-right">
-                        <span class="label label-warning">Normal</span> 
-                        <div class="strong text-muted innerT half"> 4 Tasks </div>
-                    </div>
-                    <div class="media-body">
-                        <h4>
-                            <a href="#task2" data-toggle="collapse">Complete Dashboard Design</a>
-                        </h4>
-                        <div class="innerR"> <span class="strong">Due: </span> <span> 21 April 2014</span> </div>
-                    </div>
-                </div>
-                <ul class="list-group border-top collapse" id="task2">
-                    <li class="list-group-item">
-                        <a href="index.php?page=project_tasks" class="text-regular strong"><i class="fa fa-check-square-o icon-faded fa-fw"></i> Task Heading Goes Here</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="index.php?page=project_tasks" class="text-regular strong"><i class="fa fa-check-square-o icon-faded fa-fw"></i> Task Heading Goes Here</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="index.php?page=project_tasks" class="text-regular strong"><i class="fa fa-check-square-o text-success fa-fw"></i> Task Heading Goes Here</a>
-                    </li>
-                </ul>
-            </div>
+            <?php }?>
+            
         </div>
     </div>
 </div>

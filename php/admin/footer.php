@@ -263,7 +263,7 @@ $renglones_proyectos = mysqli_query($esta, $sql);
 											<input class="form-control" type="text" id="nombre" name="nombre">
 										</div>
                                         <div class="col-md-9">
-											<label>Nombre:</label>
+											<label>Descripción:</label>
 											<textarea class="form-control" id="descripcion" name="descripcion"></textarea>
 										</div>
                                         <div class="col-md-9">

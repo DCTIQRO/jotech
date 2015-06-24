@@ -18,10 +18,13 @@ $renglon_proyecto = mysqli_fetch_assoc($renglones_proyectos);
 
 
 
-
-
+if(isset($_GET['cliente'])){
+    $sql = "select * from clientes_tareas where id=$id_tarea";
+    
+}
+else{
 $sql = "select * from proyectos_tareas where id=$id_tarea";
-
+}
 //echo $sql;
 
 $renglones_proyectos_tareas = mysqli_query($esta, $sql);
