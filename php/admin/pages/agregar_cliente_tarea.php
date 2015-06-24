@@ -8,9 +8,10 @@ extract($_POST);
 
 
 
-$sql = "insert into proyectos_tareas (nombre,descripcion,fecha_inicio,fecha_fin,id_proyecto_fk) values ('$nombre','$descripcion','$fecha_inicio','$fecha_fin','$proyecto')";
+$sql = "insert into clientes_tareas (nombre,descripcion,fecha_inicio,fecha_fin,id_cliente_fk) values ('$nombre','$descripcion','$fecha_inicio','$fecha_fin','$cliente')";
 $resultado_query = mysqli_query($esta, $sql);
 
+//echo $sql;
 //$renglon_pieza = mysqli_fetch_assoc($renglones_piezas);
  
     
@@ -18,7 +19,7 @@ $resultado_query = mysqli_query($esta, $sql);
         
     
     
-    header("Location: http://jotech.dctimx.com/php/admin/index.php?page=project_milestones&id=$proyecto");
+    header("Location: http://jotech.dctimx.com/php/admin/index.php?page=cliente&id=$cliente");
 die();
 
 

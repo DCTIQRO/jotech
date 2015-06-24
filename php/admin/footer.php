@@ -38,8 +38,10 @@ $renglones_proyectos = mysqli_query($esta, $sql);
     
         if(tipo_evento==1)
         document.getElementById('form_comentario').submit();
-        else
+        if(tipo_evento==2)
             document.getElementById('form_tarea').submit();
+        if(tipo_evento==3)
+            document.getElementById('form_tarea_cliente').submit();
     
     }
     
@@ -152,8 +154,8 @@ $renglones_proyectos = mysqli_query($esta, $sql);
 						<div class="widget-head bg-gray">
 							<ul>
 								<li class="active"><a onclick="cambiar_modo(1)" href="#tab1-2" class="glyphicons user" data-toggle="tab"><i></i><span class="strong">Comentario</a></li>
-								<li><a onclick="cambiar_modo(2)" href="#tab2-2" class="glyphicons calculator" data-toggle="tab"><i></i><span class="strong">Tarea</a></li>
-								
+								<li><a onclick="cambiar_modo(2)" href="#tab2-2" class="glyphicons calculator" data-toggle="tab"><i></i><span class="strong">Tarea Proyecto</a></li>
+								<li><a onclick="cambiar_modo(3)" href="#tab3-2" class="glyphicons calculator" data-toggle="tab"><i></i><span class="strong">Tarea Cliente</a></li>
 								
 							</ul>
 						</div>
@@ -186,8 +188,9 @@ $renglones_proyectos = mysqli_query($esta, $sql);
 								</div>
                                
 								<!-- // Step 1 END -->
-								
-								<!-- Step 2 -->
+                                
+                                
+                                <!-- Step 2 -->
                                 
 								<div class="tab-pane" id="tab2-2">
                                     <form id="form_tarea" method="post" action="/php/admin/pages/agregar_proyecto_tarea.php">
@@ -198,7 +201,7 @@ $renglones_proyectos = mysqli_query($esta, $sql);
 											<input class="form-control" type="text" id="nombre" name="nombre">
 										</div>
                                         <div class="col-md-9">
-											<label>Nombre:</label>
+											<label>Descripción:</label>
 											<textarea class="form-control" id="descripcion" name="descripcion"></textarea>
 										</div>
                                         <div class="col-md-9">
@@ -235,13 +238,24 @@ $renglones_proyectos = mysqli_query($esta, $sql);
                                 </div>
 								</div>
                                     
-								<!-- // Step 2 END -->
+								
                                         
                                         
-                                <!-- Step 3 -->
                                 
-								<div class="tab-pane" id="tab2-2">
-                                    <form id="form_tarea" method="post" action="/php/admin/pages/agregar_cliente_tarea.php">
+								
+								
+								
+                                    </form>
+								
+							</div>
+							<!-- // Step 2 END -->
+                                
+                                
+								
+								<!-- Step 3 -->
+                                
+								<div class="tab-pane" id="tab3-2">
+                                    <form id="form_tarea_cliente" method="post" action="/php/admin/pages/agregar_cliente_tarea.php">
 									<div class="row">
 										
 										<div class="col-md-9">
@@ -273,27 +287,35 @@ $renglones_proyectos = mysqli_query($esta, $sql);
                                     </div>
 									</div>
                                         <div class="col-md-9">
-                                    <select id="proyecto" name="proyecto" class="selectpicker">
+                                    <select id="cliente" name="cliente" class="selectpicker">
                                         <?php
 
-                                        $sql = "select * from proyectos order by nombre asc";
-                                        $renglones_proyectos = mysqli_query($esta, $sql);
+                                        $sql = "select * from clientes order by nombre asc";
+                                        $renglones_clientes = mysqli_query($esta, $sql);
 
-                                            while($renglon_proyecto = mysqli_fetch_assoc($renglones_proyectos)){ ?>
-                                        <option value="<?php echo $renglon_proyecto['id'];?>"><?php echo $renglon_proyecto['nombre'];?></option>
+                                            while($renglon_cliente = mysqli_fetch_assoc($renglones_clientes)){ ?>
+                                        <option value="<?php echo $renglon_cliente['id'];?>"><?php echo $renglon_cliente['nombre'];?></option>
                                         <?php }?>
                                     </select>
                                 </div>
 								</div>
                                     
-								<!-- // Step 3 END -->
+								
+                                        
+                                        
+                                
 								
 								
 								
                                     </form>
 								
 							</div>
-							
+							<!-- // Step 3 END -->
+                                
+                            
+                            
+                                
+                                
 							<!-- Wizard pagination controls -->
 							
 							<!-- // Wizard pagination controls END -->
