@@ -63,7 +63,7 @@ $renglones_proyecto_tarea_checklist = mysqli_query($esta, $sql);
                     </div>
                     <div class="innerT" style="padding-top:40px;">
                         
-                        <ul class="list-group bg-gray margin-none" style="margin-top:20px;">
+                        <ul class="list-group bg-gray margin-none" style="margin-top:5px !important;">
                             <?php while($renglon_proyecto_tarea_checklist = mysqli_fetch_assoc($renglones_proyecto_tarea_checklist)){?>
                             <li class="list-group-item">
                                 <a href="#" class="close"><i class="fa fa-times"></i></a>
