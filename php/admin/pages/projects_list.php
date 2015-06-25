@@ -14,7 +14,7 @@ $renglones_proyectos = mysqli_query($esta, $sql);
 //echo $_SERVER[''];
 
 ?>
-<link href='../assets/plugins/tables_datatables/css/jquery.dataTables.css' rel='stylesheet' type='text/css'>
+<link href='../assets/plugins/tables_datatables/css/dataTables.bootstrap.css' rel='stylesheet' type='text/css'>
 <div class="innerLR">
     <h1 class="pull-left">
         Proyectos &nbsp; 
@@ -74,17 +74,12 @@ $renglones_proyectos = mysqli_query($esta, $sql);
     </div>
 </div>
 <script src="../assets/plugins/tables_datatables/js/jquery.dataTables.min.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>
-<!--<script src="../assets/plugins/tables_datatables/extras/TableTools/media/js/TableTools.min.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>
-<script src="../assets/plugins/tables_datatables/extras/ColVis/media/js/ColVis.min.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>
-<script src="../assets/components/tables_datatables/js/DT_bootstrap.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>
-<script src="../assets/components/tables_datatables/js/datatables.init.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>
-<script src="../assets/components/forms_elements_fuelux-checkbox/fuelux-checkbox.init.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>
-<script src="../assets/plugins/forms_elements_bootstrap-select/js/bootstrap-select.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>
-<script src="../assets/components/forms_elements_bootstrap-select/bootstrap-select.init.js?v=v1.0.0-rc1&amp;sv=v0.0.1.2"></script>-->
+<script src="../assets/plugins/tables_datatables/js/dataTables.bootstrap.min.js"></script>
+
 <script>
 /* Initialize Datatables */
 $('#proyects').dataTable({
-	columnDefs: [ { orderable: false, targets: [ 1, 5 ] } ],
+	columnDefs: [ { orderable: false, targets: [ 3,4, 5 ] } ],
 	pageLength: 10,
 	lengthMenu: [[10, 20, 30, -1], [10, 20, 30, 'All']]
 });
