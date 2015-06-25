@@ -5575,6 +5575,8 @@ table.table-bordered {
 }
 table.table-bordered thead {
   border-bottom: #dddddd !important;
+  background-color: #C72A25;
+  color: #FFF;
 }
 .table-fill td {
   background: #F8F8F8;
