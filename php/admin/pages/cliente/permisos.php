@@ -31,14 +31,14 @@ $usuarios = mysqli_query($esta, $sql);
 <div class="widget-body">
     <div class="row">
 		<?php while($usuario = mysqli_fetch_assoc($usuarios)){?> 
-		<div class="col-sm-12 "><?= $usuario['nombre'] ?></div>
+		<div class="col-sm-12 " Style="margin-bottom:10px" ><h4><strong><?= $usuario['nombre'] ?></strong></h4></div>
 			<?php 
 				$sql2 = "select p.nombre,pu.permiso,pu.id from proyectos_usuarios pu JOIN proyectos p on p.id=pu.id_proyecto_fk where pu.id_usuario_fk=".$usuario['id']." AND id_cliente_fk=".$_GET['id'];
 				$proyectos= mysqli_query($esta, $sql2);
 				while($proyecto = mysqli_fetch_assoc($proyectos)){
 			?> 
 			<form id="proyecto<?= $proyecto['id'] ?>" data-id="<?= $proyecto['id'] ?>" class="users-proyec">
-				<div class="col-sm-3 "><?= $proyecto['nombre'] ?></div>
+				<div class="col-sm-3 " Style="padding-top: 8px;" ><?= $proyecto['nombre'] ?></div>
 				<?php 
 					$checket="";
 					if($proyecto['permiso'] == 1){$checket="checked";} 
@@ -58,6 +58,9 @@ $usuarios = mysqli_query($esta, $sql);
 			<?php } ?>
 		<?php } ?>
 		<div class="col-xs-12 text-center">
+			<h5 id="notificacion"></h5>
+		</div>
+		<div class="col-xs-12 text-center">
 			<a href="javascript:void(0)" onClick="guardar_permisos()" class="btn btn-success">GUARDAR</a>
 		</div>
 	</div>
@@ -75,7 +78,17 @@ function guardar_permisos()
 		nombreDelObjeto[x] = { proyecto: id, permiso: per };
 		x++;
 	});
-	
+	$.post("pages/cliente/guardar_permisos.php", {
+		permisos: nombreDelObjeto
+	}, function(result){
+        $('#notificacion').text(result);
+		window.setTimeout("borrar()",5000);
+    });
 	//alert(JSON.stringify(nombreDelObjeto, null, '    '));
+}
+
+function borrar()
+{
+	$('#notificacion').text('');
 }
 </script>
