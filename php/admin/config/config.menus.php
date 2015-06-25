@@ -46,6 +46,11 @@ $config['menu'] = array(
             'page' => 'project_tasks'
         ),
         array(
+            'label' => 'Usuarios',
+            'icon' => 'fa fa-user',
+            'page' => 'usuarios'
+        ),
+        array(
             'label' => 'Cuenta',
             'icon' => 'fa fa-user',
             'page' => 'user'

@@ -54,7 +54,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
     48=>'new_project',
-         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -137,7 +137,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -220,7 +220,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -303,7 +303,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -386,7 +386,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -469,7 +469,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -552,7 +552,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -635,7 +635,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -718,7 +718,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -801,7 +801,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -884,7 +884,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -967,7 +967,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -1425,7 +1425,7 @@
       44 => 'maps_google',
       45 => 'maps_google',
         46=>'new_project',
-        47=>'nuevo_cliente',48=>'clientes',49=>'cliente',50=>'nuevo_miembro',51=>'nuevo_usuario',
+        47=>'nuevo_cliente',48=>'clientes',49=>'cliente',50=>'nuevo_miembro',51=>'nuevo_usuario', 52=>'usuarios',
         
     ),
     'sections' => 
@@ -1507,7 +1507,7 @@
       44 => 'maps_google',
       45 => 'maps_google',
         46=>'new_project',
-         47=>'nuevo_cliente',48=>'clientes',49=>'cliente',50=>'nuevo_miembro',51=>'nuevo_usuario',
+         47=>'nuevo_cliente',48=>'clientes',49=>'cliente',50=>'nuevo_miembro',51=>'nuevo_usuario', 52=>'usuarios',
     ),
     'sections' => 
     array (
@@ -1588,7 +1588,7 @@
       44 => 'maps_google',
       45 => 'maps_google',
         46=>'new_project',
-         47=>'nuevo_cliente',48=>'clientes',49=>'cliente',50=>'nuevo_miembro',51=>'nuevo_usuario',
+         47=>'nuevo_cliente',48=>'clientes',49=>'cliente',50=>'nuevo_miembro',51=>'nuevo_usuario', 52=>'usuarios',
     ),
     'sections' => 
     array (
@@ -1669,7 +1669,7 @@
       44 => 'maps_google',
       45 => 'maps_google',
         46=>'new_project',
-         47=>'nuevo_cliente',48=>'clientes',49=>'cliente',50=>'nuevo_miembro',51=>'nuevo_usuario',
+         47=>'nuevo_cliente',48=>'clientes',49=>'cliente',50=>'nuevo_miembro',51=>'nuevo_usuario', 52=>'usuarios',
     ),
     'sections' => 
     array (
@@ -1752,7 +1752,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+        49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -1835,7 +1835,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -1918,7 +1918,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -2001,7 +2001,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -2084,7 +2084,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
@@ -2167,7 +2167,7 @@
       46 => 'maps_google',
       47 => 'maps_google',
         48=>'new_project',
-         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario',
+         49=>'nuevo_cliente', 50=>'clientes',51=>'cliente',52=>'nuevo_miembro',53=>'nuevo_usuario', 54=>'usuarios',
     ),
     'sections' => 
     array (
