@@ -50,6 +50,8 @@ $renglones_tareas = mysqli_query($esta, $sql);
 		<li>
             <a class="glyphicons share_alt" href="?page=cliente&amp;section=permisos&id=<?php echo $_GET['id']; ?>"> <i></i>Permisos</a>
         </li>
+        <li>
+            <a class="glyphicons lock" href="?page=cliente&amp;section=nuevo_proyecto&id=<?php echo $_GET['id']; ?>"> <i></i>Nuevo Proyecto</a>
     </ul>
 </div>
 <!-- // Tabs Heading END -->

@@ -39,6 +39,8 @@ $renglones_tipos = mysqli_query($esta, $sql);
         <li class="active">
             <a class="glyphicons lock" href="?page=cliente&amp;section=nuevo_cliente&id=<?php echo $_GET['id']; ?>"> <i></i>Permisos</a>
         </li>
+        <li>
+            <a class="glyphicons lock" href="?page=cliente&amp;section=nuevo_proyecto&id=<?php echo $_GET['id']; ?>"> <i></i>Nuevo Proyecto</a>
     </ul>
 </div>
 <!-- // Tabs Heading END -->

@@ -36,23 +36,23 @@
                 </div>
                 <div class="form-group">
                     <label for="direccion">Calle:</label>
-                    <input class="form-control" name="calle" value="<?php echo $renglon_cliente['calle'];?>" type="text" id="calle" placeholder="Enter your phone number">
+                    <input class="form-control" name="calle" value="<?php echo $renglon_cliente['calle'];?>" type="text" id="calle" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="numero">Numero:</label>
-                    <input class="form-control" name="numero" value="<?php echo $renglon_cliente['numero'];?>" type="text" id="numero" placeholder="Enter your phone number">
+                    <input class="form-control" name="numero" value="<?php echo $renglon_cliente['numero'];?>" type="text" id="numero" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="entre_calles">Entre Calles:</label>
-                    <input class="form-control" name="entre_calles" value="<?php echo $renglon_cliente['entre_calles'];?>" type="text" id="entre_calles" placeholder="Enter your phone number">
+                    <input class="form-control" name="entre_calles" value="<?php echo $renglon_cliente['entre_calles'];?>" type="text" id="entre_calles" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="colonia">Colonia:</label>
-                    <input class="form-control" name="colonia" value="<?php echo $renglon_cliente['colonia'];?>" type="text" id="colonia" placeholder="Enter your phone number">
+                    <input class="form-control" name="colonia" value="<?php echo $renglon_cliente['colonia'];?>" type="text" id="colonia" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="ciudad">Ciudad:</label>
-                    <input class="form-control" name="ciudad" value="<?php echo $renglon_cliente['ciudad'];?>" type="text" id="ciudad" placeholder="Enter your phone number">
+                    <input class="form-control" name="ciudad" value="<?php echo $renglon_cliente['ciudad'];?>" type="text" id="ciudad" placeholder="">
                 </div>
                 
                 <div class="separator"></div>
@@ -65,15 +65,15 @@
             
                 <div class="form-group">
                     <label for="estado">Estado:</label>
-                    <input class="form-control" name="estado" value="<?php echo $renglon_cliente['estado'];?>" type="text" id="estado" placeholder="Enter your phone number">
+                    <input class="form-control" name="estado" value="<?php echo $renglon_cliente['estado'];?>" type="text" id="estado" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="detalles">Detalles:</label>
-                    <textarea class="form-control" name="detalles" id="detalles" placeholder="Enter your phone number"><?php echo $renglon_cliente['detalles'];?></textarea>
+                    <textarea class="form-control" name="detalles" id="detalles" placeholder=""><?php echo $renglon_cliente['detalles'];?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="telefono">Telefono:</label>
-                    <input class="form-control" name="telefono" value="<?php echo $renglon_cliente['telefono'];?>" type="text" id="telefono" placeholder="Enter your phone number">
+                    <input class="form-control" name="telefono" value="<?php echo $renglon_cliente['telefono'];?>" type="text" id="telefono" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="correo">Correo:</label>

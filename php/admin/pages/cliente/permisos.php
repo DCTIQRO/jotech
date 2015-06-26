@@ -25,6 +25,8 @@ $usuarios = mysqli_query($esta, $sql);
 		<li class="active">
             <a class="glyphicons lock" href="?page=cliente&amp;section=permisos&id=<?php echo $_GET['id']; ?>"> <i></i>Permisos</a>
         </li>
+        <li>
+            <a class="glyphicons lock" href="?page=cliente&amp;section=nuevo_proyecto&id=<?php echo $_GET['id']; ?>"> <i></i>Nuevo Proyecto</a>
     </ul>
 </div>
 
