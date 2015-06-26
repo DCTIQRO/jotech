@@ -71,23 +71,7 @@ $config['menu'] = array(
                 )
             )
         ),
-        array(
-            'label' => 'Precios',
-            'icon' => 'fa fa-money',
-            'page' => 'pricing_tables',
-            'link_class' => 'pricing'
-        ),
-        array(
-            'label' => 'Foro',
-            'icon' => 'fa fa-life-ring',
-            'page' => 'support_forum_overview',
-            'link_class' => 'forum'
-        ),
-        array(
-            'label' => 'Conocimientos base',
-            'icon' => 'fa fa-file-text-o',
-            'page' => 'support_kb'
-        ),
+        
 		
 //*        array(
 //*            'label' => 'Skins',
