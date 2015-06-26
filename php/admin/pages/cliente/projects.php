@@ -1,33 +1,3 @@
-<?php
-
-session_start();
-extract($_GET);
-$id_usuario=$_SESSION['id_usuario_jotech'];
-
-if(isset($_GET['id_usuario'])){
-
-$id_usuario=$_GET['id_usuario'];
-}
-
-require_once( getcwd().'/pages/esta.php');
-
-$sql = "select t1.*,t2.tipo as tipo_proyecto from proyectos t1, tipo_proyectos t2 where t1.id_cliente_fk=$id and t1.tipo=t2.id";
-
-//echo $sql;
-
-$renglones_proyectos = mysqli_query($esta, $sql);
-
-
-
-$sql = "select * from clientes_tareas where id_cliente_fk =$id";
-
-//echo $sql;
-
-$renglones_tareas = mysqli_query($esta, $sql);
-
-
-
-?>
 <!-- Tabs Heading -->
 <div class="widget-head bg-background text-center">
     <ul>

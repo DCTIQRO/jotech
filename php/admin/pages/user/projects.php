@@ -51,62 +51,70 @@ $renglones_tareas = mysqli_query($esta, $sql);
                 Proyectos Actuales
             </h4>
             <div class="innerT">
-                <?php while($renglon_proyecto = mysqli_fetch_assoc($renglones_proyectos)){?>
-                <div class="widget widget-none bg-white ">
-                    <div class="widget-body padding-none">
-                        <div class=" media innerAll overflow-visible margin-none">
-                            <div class="pull-left innerR half hidden-xs"> <i class="icon-tv-play fa-4x icon-faded"></i> </div>
-                            <div class="media-body">
-                                <h4>
-                                    <a href="index.php?page=project_milestones&id=<?php echo $renglon_proyecto['id']; ?>" class="media-heading"><?php echo $renglon_proyecto['nombre']; ?></a>
-                                </h4>
-                                <p class="text-muted"><?php echo $renglon_proyecto['descripcion_corta']; ?></p>
-                                <div class="clearfix"></div>
-                                <div class="">
-                                    <span class="strong"> Due:</span> 
-                                    <span> <i class="fa fa-clock-o text-muted"></i> <?php echo $renglon_proyecto['fecha_entrega']; ?></span>
-                                </div>
-                                <div class="">
-                                    <span class="pull-left strong">Progress:</span> 
-                                    <div class="progress progress-mini set-width">
-                                        <div class="progress-bar progress-bar-primary" style="width: <?php echo $renglon_proyecto['progreso']; ?>%;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php }?>
-                
-                
-                
-                
-                
+<!-- Table -->
+<table class="dynamicTable scrollVertical table table-primary">
+
+    <!-- Table heading -->
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th style="width:45%;">Proyecto</th>
+            <th>Entrega <i class="fa fa-clock-o text-muted"></i></th>
+            <th>Progreso</th>
+        </tr>
+    </thead>
+    <!-- // Table heading END -->
+    
+    <!-- Table body -->
+    <tbody>
+<?php while($renglon_proyecto = mysqli_fetch_assoc($renglones_proyectos)){?>
+        <!-- Table row -->
+        <tr class="gradeX">
+<!--ID-->   <td>1</td>
+<!--Proy--> <td><h4><a href="index.php?page=project_milestones&id=<?php echo $renglon_proyecto['id']; ?>" class="media-heading"><?php echo $renglon_proyecto['nombre']; ?></a></h4></td>
+<!--entr--> <td><span><?php echo $renglon_proyecto['fecha_entrega']; ?></td>
+<!--prog--> <td><div class="progress progress-mini set-width"><div class="progress-bar progress-bar-primary" style="width: <?php echo $renglon_proyecto['progreso']; ?>%;"></div></div></td>
+        </tr>
+        <!-- // Table row END -->
+<?php } ?>
+    </tbody>
+    <!-- // Table body END -->
+</table>
+<!-- // Table END -->
             </div>
         </div>
         <div class="col-md-6">
             <h4 class="innerB">
                 Tareas
             </h4>
-            <?php while($renglon_tarea = mysqli_fetch_assoc($renglones_tareas)){?>
-            <div class="widget widget-primary widget-small">
-                <div class="media innerAll half bg-white">
-                    <div class="pull-left h1 media-object hidden-xs margin-none innerR"> <i class=" icon-alarm-clock icon-faded fa-fw"></i> </div>
-                    <div class="pull-right text-right">
-                        <!--<span class="label label-danger">Urgent</span> -->
-                        
-                    </div>
-                    <div class="media-body">
-                        <h4>
-                            <a href="index.php?page=project_tasks&id_tarea=<?php echo $renglon_tarea['id']; ?>" data-toggle="collapse"> <?php echo $renglon_tarea['nombre']; ?></a>
-                        </h4>
-                        <div class="innerR"> <span class="strong">Entrega: </span> <span> <?php echo $renglon_tarea['fecha_fin']; ?></span> </div>
-                    </div>
-                </div>
-                
-            </div>
-            <?php }?>
-            
+<!-- Table -->
+<table class="dynamicTable scrollVertical table table-primary">
+
+    <!-- Table heading -->
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Proyecto</th>
+            <th>Entrega <i class="fa fa-clock-o text-muted"></i></th>
+        </tr>
+    </thead>
+    <!-- // Table heading END -->
+    
+    <!-- Table body -->
+    <tbody>
+<?php while($renglon_tarea = mysqli_fetch_assoc($renglones_tareas)){?>
+        <!-- Table row -->
+        <tr class="gradeX">
+<!--ID-->   <td>1</td>
+<!--Proy--> <td><h4><a href="index.php?page=project_tasks&id_tarea=<?php echo $renglon_tarea['id']; ?>&cliente=1"> <?php echo $renglon_tarea['nombre']; ?></a></h4></td>
+<!--entr--> <td><div class="innerR"> <span class="strong"></span> <span> <?php echo $renglon_tarea['fecha_fin']; ?></span> </div></td>
+        </tr>
+        <!-- // Table row END -->
+<?php } ?>
+    </tbody>
+    <!-- // Table body END -->
+</table>
+<!-- // Table END -->            
         </div>
     </div>
 </div>
