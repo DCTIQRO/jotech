@@ -11,6 +11,9 @@ $renglones_proyectos_etapas = mysqli_query($esta, $sql);
 $sql = "select * from proyectos order by nombre asc";
 $renglones_proyectos = mysqli_query($esta, $sql);
 
+$sql = "select * from usuarios order by nombre asc";
+$renglones_usuarios = mysqli_query($esta, $sql);
+
 
 //echo $sql;
 ?>
@@ -235,6 +238,14 @@ $renglones_proyectos = mysqli_query($esta, $sql);
                                         <option value="<?php echo $renglon_proyecto['id'];?>"><?php echo $renglon_proyecto['nombre'];?></option>
                                         <?php }?>
                                     </select>
+                                            
+                                     <div class="col-md-9">
+                                         <label class="col-sm-2 control-label" for="singleFieldTags2">Usuarios:</label><br>
+                                    <input name="tags" id="singleFieldTags2" value="">
+                                </div>       
+                                            
+                                            
+                                            
                                 </div>
 								</div>
                                     
@@ -298,6 +309,13 @@ $renglones_proyectos = mysqli_query($esta, $sql);
                                         <?php }?>
                                     </select>
                                 </div>
+                                        
+                                        <div class="col-md-9">
+                                         <label class="col-sm-2 control-label" for="singleFieldTags3">Usuarios:</label><br>
+                                    <input name="tags" id="singleFieldTags3" value="">
+                                </div>  
+                                        
+                                        
 								</div>
                                     
 								
@@ -389,6 +407,24 @@ foreach ($scripts as $id => $script)
 		echo '<script src="' . $script['file'] . '"></script>' . "\n\t";
 } 
 ?>
+<link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
+<link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    
+     var sampleTags = [<?php while($renglon_usuario = mysqli_fetch_assoc($renglones_usuarios)){ echo "'".$renglon_usuario['nombre']."',";} ?>];
+
+   $('#singleFieldTags2').tagit({
+                availableTags: sampleTags
+            });
+    
+    $('#singleFieldTags3').tagit({
+                availableTags: sampleTags
+            });
+
+
+</script>
 </body>
 </html>
