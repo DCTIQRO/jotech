@@ -13,6 +13,8 @@ $sql = "select * from tipo_proyectos order by tipo asc";
 $renglones_tipos = mysqli_query($esta, $sql);
 
 //echo $_SERVER[''];
+$sql = "select * from usuarios order by nombre asc";
+$renglones_usuarios = mysqli_query($esta, $sql);
 
 ?>
 <!-- Tabs Heading -->
@@ -113,6 +115,11 @@ $renglones_tipos = mysqli_query($esta, $sql);
                     <input type="text" name="etiquetas" id="etiquetas" placeholder="Tags" class="tm-input"/>
                 </div>
             
+            <div class="form-group">
+                                         <label for="singleFieldTags2">Usuarios:</label><br>
+                                    <input name="tags" id="singleFieldTags2" value="">
+                                </div> 
+            
         </div>
     </div>
     </form>
@@ -128,4 +135,22 @@ $renglones_tipos = mysqli_query($esta, $sql);
 
     jQuery(".tm-input").tagsManager();
     
+</script>
+
+<link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
+<link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    
+     var sampleTags = [<?php while($renglon_usuario = mysqli_fetch_assoc($renglones_usuarios)){ echo "'".$renglon_usuario['nombre']."',";} ?>];
+
+   $('#singleFieldTags2').tagit({
+                availableTags: sampleTags
+            });
+    
+    
+
+
 </script>

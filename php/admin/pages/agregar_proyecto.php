@@ -19,7 +19,7 @@ $renglones_proyectos = mysqli_query($esta, $sql);
     $id_proyecto=$renglon_proyecto['id'];
     $etiquetas=explode(",",$hiddenetiquetas);
     
-    echo $hidden-etiquetas;
+    //echo $hidden-etiquetas;
     
     for($q=0;$q<count($etiquetas);$q++){
     
@@ -28,6 +28,29 @@ $renglones_proyectos = mysqli_query($esta, $sql);
         $resultado = mysqli_query($esta, $sql);
         
     }
+    
+$usuarios=explode(",",$tags);
+    
+
+    
+   
+    
+    for($q=0;$q<count($usuarios);$q++){
+
+        $sql="select * from usuarios where nombre ='".$usuarios[$q]."'";
+        $renglones_usuarios = mysqli_query($esta, $sql);
+        $renglon_usuario = mysqli_fetch_assoc($renglones_usuarios);
+            
+        $id_usuario=$renglon_usuario['id'];
+    
+        $sql = "insert into proyectos_usuarios (id_proyecto_fk,id_usuario_fk) values ('$id_proyecto','$id_usuario')";
+        
+        echo $sql;
+        
+        $resultado_query = mysqli_query($esta, $sql);
+    
+
+}
     
     header("Location: http://jotech.dctimx.com/php/admin/index.php?page=projects_list");
 die();

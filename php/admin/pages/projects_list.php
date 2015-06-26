@@ -41,7 +41,7 @@ $renglones_proyectos = mysqli_query($esta, $sql);
 				<tbody>
 				<?php while($renglon_proyecto = mysqli_fetch_assoc($renglones_proyectos)){?>
 					<tr>
-						<td><?= $renglon_proyecto['nombre'];?></td>
+						<td><a href="index.php?page=project_milestones&id=<?= $renglon_proyecto['id'];?>"><?= $renglon_proyecto['nombre'];?></a></td>
 						<td><?= $renglon_proyecto['descripcion_corta'];?></td>
 						<td><?= $renglon_proyecto['fecha_entrega'];?></td>
 						<td>

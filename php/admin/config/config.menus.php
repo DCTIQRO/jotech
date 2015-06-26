@@ -20,31 +20,15 @@ $config['menu'] = array(
             
 		),
 
-        array(
-            'label' => 'Mosaico',
-            'icon' => 'fa fa-th-large',
-            'page' => 'projects_grid'
-        ),
+        
         array(
             'label' => 'Lista',
             'icon' => 'fa fa-list',
             'page' => 'projects_list'
         ),
-        array(
-            'label' => 'Revisar proyecto',
-            'icon' => 'fa fa-clock-o',
-            'page' => 'project_milestones'
-        ),
-        array(
-            'label' => 'Nuevo proyecto',
-            'icon' => 'fa fa-clock-o',
-            'page' => 'new_project'
-        ),
-        array(
-            'label' => 'Tareas',
-            'icon' => 'fa fa-ticket',
-            'page' => 'project_tasks'
-        ),
+        
+        
+        
         array(
             'label' => 'Usuarios',
             'icon' => 'fa fa-user',
